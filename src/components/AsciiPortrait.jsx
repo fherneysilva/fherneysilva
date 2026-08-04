@@ -1,8 +1,15 @@
 import React, { useRef, useEffect, useState } from "react";
 import { asciiData } from "../assets/asciiData";
+import { useTheme } from "../theme/useTheme";
 
 // Module-level cache to persist between remounts
 const memoryCache = {};
+
+// The portrait always renders on a dark backdrop (the page itself in dark
+// mode, a soft glow drawn from the particles' own positions in light mode —
+// see the glow canvas below), so the particle color stays fixed.
+const ACCENT_RGB = "232, 163, 77";
+const GLOW_COLOR = "#16161a";
 
 const calculateSize = (width) => {
   if (width <= 480) {
@@ -24,6 +31,12 @@ const AsciiPortrait = () => {
   const startTimeRef = useRef(null);
   const [size, setSize] = useState(() => calculateSize(window.innerWidth));
   const [dataReady, setDataReady] = useState(false);
+  const { theme } = useTheme();
+  const themeRef = useRef(theme);
+
+  useEffect(() => {
+    themeRef.current = theme;
+  }, [theme]);
 
   // ASCII character set from sparse to dense
   const chars = ".:-=+*#%@".split("");
@@ -154,6 +167,25 @@ const AsciiPortrait = () => {
     canvas.height = size * dpr;
     ctx.scale(dpr, dpr);
 
+    // Soft glow traced from the particles' own resting positions, so in
+    // light mode the dark backdrop follows the actual portrait silhouette
+    // instead of a generic shape. Built once here rather than every frame.
+    let glowCanvas = null;
+    if (dataReady && particlesRef.current.length) {
+      glowCanvas = document.createElement("canvas");
+      glowCanvas.width = size * dpr;
+      glowCanvas.height = size * dpr;
+      const glowCtx = glowCanvas.getContext("2d");
+      glowCtx.scale(dpr, dpr);
+      glowCtx.filter = "blur(3px)";
+      glowCtx.fillStyle = GLOW_COLOR;
+      particlesRef.current.forEach((p) => {
+        glowCtx.beginPath();
+        glowCtx.arc(p.targetX, p.targetY, 4, 0, Math.PI * 2);
+        glowCtx.fill();
+      });
+    }
+
     let animationId;
 
     const draw = () => {
@@ -162,6 +194,10 @@ const AsciiPortrait = () => {
       ctx.clearRect(0, 0, size, size);
 
       if (!dataReady || !particlesRef.current.length) return;
+
+      if (glowCanvas && themeRef.current === "light") {
+        ctx.drawImage(glowCanvas, 0, 0, size, size);
+      }
 
       const particles = particlesRef.current;
       const mouse = mouseRef.current;
@@ -234,7 +270,7 @@ const AsciiPortrait = () => {
         p.x += p.vx;
         p.y += p.vy;
 
-        ctx.fillStyle = `rgba(232, 163, 77, ${p.currentAlpha})`;
+        ctx.fillStyle = `rgba(${ACCENT_RGB}, ${p.currentAlpha})`;
         ctx.fillText(p.char, p.x, p.y);
       });
     };

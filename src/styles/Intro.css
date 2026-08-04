@@ -123,16 +123,23 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 80vh;
-    min-height: 80dvh;
-    padding: 20px 24px;
-    padding-top: 56px;
-    gap: 20px;
+    min-height: unset;
+    padding: 24px 24px 30px;
+    padding-top: 76px;
+    gap: 16px;
   }
 
   .intro-simulation {
     display: flex;
     flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  /* The portrait artwork itself has empty margin baked in (it's centered at
+     80% scale within its square canvas) — zoom in and let the wrapper above
+     crop the excess, so the visible silhouette fills more of its box. */
+  .intro-simulation .simulation-container {
+    transform: scale(1.25);
   }
 
   .intro-block {
@@ -169,9 +176,9 @@
 /* Small mobile */
 @media only screen and (max-width: 480px) {
   #intro {
-    padding: 16px;
-    padding-top: 48px;
-    gap: 16px;
+    padding: 16px 16px 24px;
+    padding-top: 68px;
+    gap: 12px;
   }
 
   .intro-title,
