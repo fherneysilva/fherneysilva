@@ -58,7 +58,7 @@ const NavBar = () => {
               <EmailRoundedIcon style={{ fontSize: 20 }} />
             </Nav.Link>
             <Nav.Link
-              href="https://github.com/fhersil13"
+              href="https://github.com/fherneysilva"
               target="_blank"
               rel="noopener noreferrer"
             >

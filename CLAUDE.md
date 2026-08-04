@@ -4,7 +4,7 @@ Este archivo brinda contexto a Claude Code (claude.ai/code) al trabajar con el c
 
 ## Proyecto
 
-Este es el portafolio personal de Fherney Silva — un sitio de una sola página construido con Vite + React 19, Material UI, Bootstrap 5 y React Router, que presenta su experiencia, proyectos y habilidades. Se despliega en GitHub Pages bajo `fherneysilva.github.io`.
+Este es el portafolio personal de Fherney Silva — un sitio de una sola página construido con Vite + React 19, Material UI, Bootstrap 5 y React Router, que presenta su experiencia, proyectos y habilidades. Se despliega en GitHub Pages, servido bajo el dominio propio `www.fherneysilva.com` (antes `fherneysilva.github.io`, que ahora redirige).
 
 ## Comandos
 
@@ -40,4 +40,4 @@ Este archivo es la referencia rápida para trabajar en el código. La documentac
 - **Despliegue**: automatizado con GitHub Actions (`.github/workflows/deploy.yml`), dispara en cada push a `master` y publica a GitHub Pages. Ver [`docs/deployment.md`](docs/deployment.md) para el flujo completo.
 - **Ramas**: `develop` es la rama activa de trabajo (no despliega nada); `master` es producción — se actualiza con merge manual desde `develop` cuando algo está listo para publicarse.
 - **Lint**: `AsciiPortrait.jsx` tiene un warning conocido y aceptado de `react-hooks/set-state-in-effect` — no se corrige porque el riesgo de alterar el timing de la animación de partículas (ajustada a mano) supera el beneficio de silenciar un lint no funcional.
-- **Dominio propio**: pendiente de compra (`www.fherneysilva.com`). Hasta que esté conectado, todo debe seguir apuntando a `fherneysilva.github.io`.
+- **Dominio propio**: comprado y conectado (`www.fherneysilva.com`), vía `public/CNAME` + DNS + Settings → Pages → Custom domain en GitHub.

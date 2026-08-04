@@ -11,7 +11,7 @@ El sitio se despliega automáticamente a GitHub Pages con GitHub Actions, defini
 ## Flujo de ramas
 
 - **`develop`** — rama activa de trabajo. Todo el desarrollo y las pruebas ocurren acá. Los pushes a `develop` **no** disparan ningún despliegue.
-- **`master`** — rama de producción. Refleja lo que está publicado en `fherneysilva.github.io`. Se actualiza haciendo merge manual desde `develop` cuando algo está listo para publicarse:
+- **`master`** — rama de producción. Refleja lo que está publicado en `www.fherneysilva.com`. Se actualiza haciendo merge manual desde `develop` cuando algo está listo para publicarse:
 
   ```sh
   git checkout master
@@ -33,13 +33,15 @@ npm run preview    # sirve dist/ localmente para verificar antes de publicar
 
 `vite.config.js` tiene `base: '/'`, correcto para un dominio raíz tipo `usuario.github.io` (no para un sub-path tipo `usuario.github.io/repo`). Si en el futuro se conecta un dominio propio (custom domain), este valor no cambia — sigue siendo la raíz.
 
-## Dominio propio (pendiente)
+## Dominio propio
 
-Fherney planea comprar `www.fherneysilva.com`. Cuando esté listo, conectar un dominio propio a GitHub Pages requiere:
+Comprado en Squarespace Domains (2 años, con auto-renovación) y conectado:
 
-1. Configurar los registros DNS del dominio (CNAME o registros A, según el proveedor) apuntando a GitHub Pages.
-2. Agregar un archivo `CNAME` en la raíz de `public/` con el dominio (ej. `www.fherneysilva.com`), para que Vite lo incluya en el build.
-3. Configurarlo también en Settings → Pages → Custom domain.
-4. Actualizar `og:url` y demás referencias de dominio en `index.html` una vez esté funcionando (hasta entonces, deben seguir apuntando a `fherneysilva.github.io`, que es donde el sitio realmente vive).
+1. **DNS** (en el panel de Squarespace): registro `CNAME` — `www` → `fherneysilva.github.io`.
+2. **`public/CNAME`** — contiene `www.fherneysilva.com`, para que Vite lo incluya en cada build y GitHub Pages sepa qué dominio servir.
+3. **GitHub → Settings → Pages → Custom domain** — configurado con `www.fherneysilva.com`, HTTPS forzado una vez GitHub terminó de emitir el certificado.
+4. **`index.html`** — `canonical`, `og:url`, `og:title`, `og:description` y `twitter:card` ya apuntan a `https://www.fherneysilva.com/`.
 
-No implementar nada de esto hasta que el dominio esté efectivamente comprado y listo para conectar.
+`fherneysilva.github.io` sigue existiendo pero GitHub lo redirige automáticamente al dominio propio.
+
+**Pendiente opcional**: agregar una imagen `og:image` real (ya se diseñaron opciones, ver conversación con Claude) — hoy las tarjetas de redes sociales muestran solo texto, sin imagen de preview.
