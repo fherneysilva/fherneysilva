@@ -1,13 +1,13 @@
-# Performance y auditoría Lighthouse
+# Auditoría Lighthouse
 
 ## Estado actual (última auditoría: 2026-08-04)
 
-| Categoría | Puntaje |
-| --- | --- |
-| SEO | 100 |
-| Accesibilidad | 100 |
-| Buenas prácticas | 100 |
-| Rendimiento | 92 |
+| Categoría        | Puntaje |
+| ---------------- | ------- |
+| SEO              | 100     |
+| Accesibilidad    | 100     |
+| Buenas prácticas | 100     |
+| Rendimiento      | 92      |
 
 Medido con `npx lighthouse <url> --form-factor=mobile --screenEmulation.mobile` (perfil mobile, que es más estricto que desktop — es el que se reporta acá).
 
