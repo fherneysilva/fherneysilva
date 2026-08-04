@@ -1,36 +1,45 @@
 # Despliegue
 
-## Estado actual (verificado en el repo, no aspiracional)
+## Estado actual
 
-- El repo se llama `fherneysilva.github.io` — el formato especial de nombre `usuario.github.io` que GitHub Pages reconoce automáticamente para servir un sitio personal.
-- **No hay ningún workflow de GitHub Actions** (`.github/workflows/` no existe).
-- **No hay dependencia `gh-pages`** en `package.json` ni script `deploy`.
-- El repo tiene dos ramas: `develop` (donde vive todo el trabajo activo, código fuente sin compilar) y `master` (desactualizada, solo contiene el commit inicial con el `README.md` — no el sitio compilado).
-- **Conclusión: el pipeline de publicación no está configurado todavía.** Aunque GitHub Pages esté activado en la configuración del repo apuntando a alguna rama, esa rama no contiene un build (`dist/`) — contiene código fuente de Vite/React, que un navegador no puede ejecutar directamente. Hace falta un paso de build antes de publicar.
+El sitio se despliega automáticamente a GitHub Pages con GitHub Actions, definido en [`.github/workflows/deploy.yml`](../.github/workflows/deploy.yml).
 
-## Cómo generar el build localmente (por ahora, manual)
+- **Disparador**: cada push a `master`.
+- **Build**: `npm ci` + `npm run build` (Node 20), genera `dist/`.
+- **Publicación**: `actions/upload-pages-artifact` + `actions/deploy-pages` (mecanismo nativo de GitHub Pages, sin rama `gh-pages` ni paquetes de terceros).
+
+## Flujo de ramas
+
+- **`develop`** — rama activa de trabajo. Todo el desarrollo y las pruebas ocurren acá. Los pushes a `develop` **no** disparan ningún despliegue.
+- **`master`** — rama de producción. Refleja lo que está publicado en `fherneysilva.github.io`. Se actualiza haciendo merge manual desde `develop` cuando algo está listo para publicarse:
+
+  ```sh
+  git checkout master
+  git merge develop
+  git push origin master   # esto dispara el deploy automáticamente
+  git checkout develop     # volver a seguir trabajando acá
+  ```
+
+## Paso manual único (ya hecho / a verificar)
+
+GitHub Pages debe tener configurado **Settings → Pages → Source → "GitHub Actions"** en el repositorio (en vez de una rama específica). Esto se configura una sola vez desde la interfaz de GitHub — no se puede hacer vía git. Si el workflow falla en el primer run con un error relacionado a Pages, es la señal de que este paso falta.
+
+## Cómo generar el build localmente (para probar antes de mergear a master)
 
 ```sh
 npm run build      # genera dist/ con el sitio estático listo para servir
 npm run preview    # sirve dist/ localmente para verificar antes de publicar
 ```
 
-`vite.config.js` tiene `base: '/'`, correcto para un dominio raíz tipo `usuario.github.io` (no para un sub-path tipo `usuario.github.io/repo`).
+`vite.config.js` tiene `base: '/'`, correcto para un dominio raíz tipo `usuario.github.io` (no para un sub-path tipo `usuario.github.io/repo`). Si en el futuro se conecta un dominio propio (custom domain), este valor no cambia — sigue siendo la raíz.
 
-## Opciones recomendadas para automatizar (pendiente de implementar)
+## Dominio propio (pendiente)
 
-Cualquiera de estas dos es estándar y de bajo mantenimiento; ninguna está implementada todavía en este repo:
+Fherney planea comprar `www.fherneysilva.com`. Cuando esté listo, conectar un dominio propio a GitHub Pages requiere:
 
-### Opción A — GitHub Actions + GitHub Pages nativo (recomendada)
+1. Configurar los registros DNS del dominio (CNAME o registros A, según el proveedor) apuntando a GitHub Pages.
+2. Agregar un archivo `CNAME` en la raíz de `public/` con el dominio (ej. `www.fherneysilva.com`), para que Vite lo incluya en el build.
+3. Configurarlo también en Settings → Pages → Custom domain.
+4. Actualizar `og:url` y demás referencias de dominio en `index.html` una vez esté funcionando (hasta entonces, deben seguir apuntando a `fherneysilva.github.io`, que es donde el sitio realmente vive).
 
-Workflow que compila en cada push a `develop` (o a `master`/`main` si se decide usar esa como rama de publicación) y despliega el resultado usando las actions oficiales `actions/upload-pages-artifact` + `actions/deploy-pages`. No requiere ninguna dependencia nueva en `package.json`; requiere habilitar "GitHub Actions" como fuente en Settings → Pages del repo.
-
-### Opción B — paquete `gh-pages`
-
-Agregar `gh-pages` como devDependency y un script `"deploy": "npm run build && gh-pages -d dist"` que se corre manualmente (o desde CI) y publica `dist/` a una rama `gh-pages`. Más simple de entender, pero requiere acordarse de correrlo o igual conectarlo a un workflow.
-
-## Al decidir implementar
-
-- Confirmar en Settings → Pages del repo en GitHub cuál es la fuente configurada actualmente (rama + carpeta, o "GitHub Actions").
-- Elegir una sola rama como "fuente de verdad para producción" (`develop` es la activa hoy; si se prefiere seguir la convención `main`/`master` para producción, habría que decidir el flujo de merge).
-- Una vez elegida la opción, actualizar este documento con el estado real (esta sección de "pendiente" debe reemplazarse por la descripción del pipeline efectivamente implementado).
+No implementar nada de esto hasta que el dominio esté efectivamente comprado y listo para conectar.

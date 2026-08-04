@@ -37,6 +37,7 @@ Este archivo es la referencia rápida para trabajar en el código. La documentac
 
 ## Estado conocido / pendientes
 
-- **Despliegue**: no hay workflow de CI/CD configurado todavía (sin `.github/workflows`, sin dependencia `gh-pages`). Ver [`docs/deployment.md`](docs/deployment.md) para el estado exacto y opciones recomendadas.
+- **Despliegue**: automatizado con GitHub Actions (`.github/workflows/deploy.yml`), dispara en cada push a `master` y publica a GitHub Pages. Ver [`docs/deployment.md`](docs/deployment.md) para el flujo completo.
+- **Ramas**: `develop` es la rama activa de trabajo (no despliega nada); `master` es producción — se actualiza con merge manual desde `develop` cuando algo está listo para publicarse.
 - **Lint**: `AsciiPortrait.jsx` tiene un warning conocido y aceptado de `react-hooks/set-state-in-effect` — no se corrige porque el riesgo de alterar el timing de la animación de partículas (ajustada a mano) supera el beneficio de silenciar un lint no funcional.
-- **Rama `master`**: quedó desactualizada (solo tiene el commit inicial con el `README.md`). El trabajo activo vive en `develop`.
+- **Dominio propio**: pendiente de compra (`www.fherneysilva.com`). Hasta que esté conectado, todo debe seguir apuntando a `fherneysilva.github.io`.
