@@ -1,53 +1,66 @@
 import React from "react";
 import "../styles/About.css";
 import FadeInSection from "./FadeInSection";
+import { useLanguage } from "../i18n/useLanguage";
+import { FaJava, FaAws } from "react-icons/fa";
+import { SiSpringboot, SiTerraform, SiDocker, SiAngular } from "react-icons/si";
+
+const techIcons = {
+  Java: FaJava,
+  "Spring Boot": SiSpringboot,
+  AWS: FaAws,
+  Terraform: SiTerraform,
+  Docker: SiDocker,
+  Angular: SiAngular,
+};
 
 const About = () => {
+  const { t } = useLanguage();
+
   const one = (
     <p>
-      I am currently a <b>Software Engineer</b> at
-      <a href="https://www.ads.google.com/"> Google</a>, where I help build
-      autobidder models that make Google Search money. Previously, I was at{" "}
-      <a href="https://www.aboutamazon.com/"> Amazon</a> and{" "}
-      <a href="https://newsroom.pinterest.com/company/"> Pinterest.</a>
+      {t.about.paragraphOne.map((segment, i) =>
+        segment.highlight ? (
+          <span key={i} className="highlight">
+            {segment.text}
+          </span>
+        ) : segment.bold ? (
+          <b key={i}>{segment.text}</b>
+        ) : (
+          segment.text
+        )
+      )}
     </p>
   );
-  const two = (
-    <p>
-      In my free time, I’m nerdy about tech gadgets, love literary fiction, and
-      play way too many battle royale games. Oh, I make content too.
-    </p>
-  );
-
-  const techStack = [
-    "Python",
-    "Typescript",
-    "React.js",
-    "Java",
-    "Javascript ES6+",
-  ];
+  const two = <p>{t.about.paragraphTwo}</p>;
 
   return (
     <div id="about">
       <FadeInSection>
         <div className="section-header ">
-          <span className="section-title">/ about me</span>
+          <span className="section-title">{t.about.sectionTitle}</span>
         </div>
         <div className="about-content">
           <div className="about-description">
             {one}
-            {"Here are some technologies I have been working with:"}
+            {t.about.techIntro}
             <ul className="tech-stack">
-              {techStack.map((techItem, i) => (
-                <FadeInSection key={i} delay={(i + 1) * 100 + "ms"}>
-                  <li>{techItem}</li>
-                </FadeInSection>
-              ))}
+              {t.about.techStack.map((techItem, i) => {
+                const Icon = techIcons[techItem];
+                return (
+                  <FadeInSection key={i} delay={(i + 1) * 100 + "ms"}>
+                    <li>
+                      {Icon && <Icon className="tech-icon" />}
+                      <span>{techItem}</span>
+                    </li>
+                  </FadeInSection>
+                );
+              })}
             </ul>
             {two}
           </div>
           <div className="about-image">
-            <img alt="Gazi Jarin" src={"/assets/me2.jpg"} />
+            <img alt={t.about.imageAlt} src={"/assets/fher.png"} />
           </div>
         </div>
       </FadeInSection>

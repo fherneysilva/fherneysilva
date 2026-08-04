@@ -3,12 +3,15 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import BorderColorIcon from "@mui/icons-material/BorderColor";
+import { FiFeather } from "react-icons/fi";
 import "../styles/NavBar.css";
+import { useLanguage } from "../i18n/useLanguage";
+import SiscodexNavLabel from "./SiscodexNavLabel";
 
 const NavBar = () => {
   const [expanded, setExpanded] = useState(false);
   const scrollPos = useRef(0);
+  const { t, language, toggleLanguage } = useLanguage();
 
   useEffect(() => {
     if (expanded) {
@@ -37,33 +40,53 @@ const NavBar = () => {
       onToggle={(isExpanded) => setExpanded(isExpanded)}
     >
       <Container>
-        <Navbar.Brand href="/">Gazi Jarin</Navbar.Brand>
+        <Navbar.Brand href="/">Fherney Silva</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto" onSelect={() => setExpanded(false)}>
-            <Nav.Link href="/#intro">Home</Nav.Link>
-            <Nav.Link href="/#about">About</Nav.Link>
-            <Nav.Link href="/#experience">Experience</Nav.Link>
-            <Nav.Link href="/#projects">Software</Nav.Link>
-            <Nav.Link href="/#hardware-projects">Hardware</Nav.Link>
-            <Nav.Link href="/#art">Art</Nav.Link>
+            <Nav.Link href="/#intro">{t.nav.home}</Nav.Link>
+            <Nav.Link href="/#about">{t.nav.about}</Nav.Link>
+            <Nav.Link href="/#experience">{t.nav.experience}</Nav.Link>
+            <Nav.Link href="/#projects">{t.nav.software}</Nav.Link>
+            <Nav.Link href="/#blog">{t.nav.blog}</Nav.Link>
+            <Nav.Link href="/#siscodex">
+              <SiscodexNavLabel text={t.nav.siscodex} />
+            </Nav.Link>
           </Nav>
-          <Nav className="ms-auto" onSelect={() => setExpanded(false)}>
-            <Nav.Link href="mailto:gazijarin@gmail.com">
+          <Nav className="ms-auto align-items-center" onSelect={() => setExpanded(false)}>
+            <Nav.Link href="mailto:fherneysilva13@gmail.com">
               <EmailRoundedIcon style={{ fontSize: 20 }} />
             </Nav.Link>
-            <Nav.Link href="https://github.com/gazijarin" target="_blank">
+            <Nav.Link
+              href="https://github.com/fhersil13"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <GitHubIcon style={{ fontSize: 19 }} />
             </Nav.Link>
             <Nav.Link
-              href="https://www.linkedin.com/in/gazijarin/"
+              href="https://www.linkedin.com/in/fherneysilva/"
               target="_blank"
+              rel="noopener noreferrer"
             >
               <LinkedInIcon style={{ fontSize: 21 }} />
             </Nav.Link>
-            <Nav.Link href="https://medium.com/@gazijarin.ai" target="_blank">
-              <BorderColorIcon style={{ fontSize: 20 }} />
+            <Nav.Link
+              href="https://fherneysilva.hashnode.dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Blog"
+            >
+              <FiFeather size={17} />
             </Nav.Link>
+            <button
+              type="button"
+              className="lang-toggle-btn"
+              onClick={toggleLanguage}
+              title={language === "en" ? "Ver en español" : "View in English"}
+            >
+              {language === "en" ? "ES" : "EN"}
+            </button>
           </Nav>
         </Navbar.Collapse>
       </Container>
