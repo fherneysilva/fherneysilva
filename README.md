@@ -71,7 +71,7 @@
 		<th>Tech Stack</th>
 	</tr>
 	<tr>
-		<td><a href="https://fherneysilva.github.io"><b>Portfolio Website</b></a></td>
+		<td><a href="https://www.fherneysilva.com"><b>Portfolio Website</b></a></td>
 		<td>My personal portfolio and digital business card.</td>
 		<td><img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black"/> <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white"/> <img src="https://img.shields.io/badge/Material_UI-007FFF?style=flat-square&logo=mui&logoColor=white"/> <img src="https://img.shields.io/badge/GitHub_Pages-222?style=flat-square&logo=githubpages&logoColor=white"/></td>
 	</tr>
@@ -124,7 +124,7 @@
 <div align="center">
 	<a href="mailto:fherneysilva.dev@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"/></a>
 	<a href="https://linkedin.com/in/fherneysilva"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
-	<a href="https://github.com/fhersil13"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/></a>
+	<a href="https://github.com/fherneysilva"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/></a>
 	<br/>
 	<b>📍 Location:</b> Colombia
 </div>
