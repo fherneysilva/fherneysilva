@@ -48,11 +48,9 @@ const About = () => {
               {t.about.techStack.map((techItem, i) => {
                 const Icon = techIcons[techItem];
                 return (
-                  <FadeInSection key={i} delay={(i + 1) * 100 + "ms"}>
-                    <li>
-                      {Icon && <Icon className="tech-icon" />}
-                      <span>{techItem}</span>
-                    </li>
+                  <FadeInSection as="li" key={i} delay={(i + 1) * 100 + "ms"}>
+                    {Icon && <Icon className="tech-icon" aria-hidden="true" />}
+                    <span>{techItem}</span>
                   </FadeInSection>
                 );
               })}
@@ -60,7 +58,7 @@ const About = () => {
             {two}
           </div>
           <div className="about-image">
-            <img alt={t.about.imageAlt} src={"/assets/fher.png"} />
+            <img alt={t.about.imageAlt} src="/assets/fher.jpg" width="480" height="640" />
           </div>
         </div>
       </FadeInSection>

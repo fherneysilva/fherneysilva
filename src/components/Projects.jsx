@@ -9,18 +9,16 @@ const ProjectGrid = ({ title, items }) => (
     <div className="projects-group-title">{title}</div>
     <ul className="projects-grid">
       {items.map((project, i) => (
-        <FadeInSection key={project.id} delay={(i + 1) * 100 + "ms"}>
-          <li className="projects-card">
-            <div className="card-header">
-              <div className="folder-icon">
-                <FolderOpenRoundedIcon sx={{ fontSize: 35 }} />
-              </div>
+        <FadeInSection as="li" className="projects-card" key={project.id} delay={(i + 1) * 100 + "ms"}>
+          <div className="card-header">
+            <div className="folder-icon">
+              <FolderOpenRoundedIcon sx={{ fontSize: 35 }} />
             </div>
+          </div>
 
-            <div className="card-title">{project.title}</div>
-            <div className="card-desc">{project.desc}</div>
-            <div className="card-tech">{project.techStack}</div>
-          </li>
+          <div className="card-title">{project.title}</div>
+          <div className="card-desc">{project.desc}</div>
+          <div className="card-tech">{project.techStack}</div>
         </FadeInSection>
       ))}
     </ul>

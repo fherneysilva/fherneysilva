@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function FadeInSection(props) {
+export default function FadeInSection({ as: Tag = "div", className, ...props }) {
   const [isVisible, setVisible] = React.useState(false);
   const domRef = React.useRef();
   React.useEffect(() => {
@@ -24,12 +24,12 @@ export default function FadeInSection(props) {
     };
   }, []);
   return (
-    <div
-      className={`fade-in-section ${isVisible ? "is-visible" : ""}`}
+    <Tag
+      className={`fade-in-section ${isVisible ? "is-visible" : ""}${className ? ` ${className}` : ""}`}
       style={{ transitionDelay: `${props.delay}` }}
       ref={domRef}
     >
       {props.children}
-    </div>
+    </Tag>
   );
 }

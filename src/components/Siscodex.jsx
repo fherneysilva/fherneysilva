@@ -23,6 +23,8 @@ const Siscodex = () => {
               className="siscodex-logo"
               src="/assets/siscodex-nbg-trimmed.png"
               alt={t.siscodex.heading}
+              width="560"
+              height="58"
             />
             <span className="siscodex-badge">
               <span className="siscodex-badge-dot" />
