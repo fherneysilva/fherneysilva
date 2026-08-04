@@ -30,7 +30,7 @@ Estructura por sección (mismas claves en `en` y `es`):
 
 ## 3. Cambiar fotos
 
-- **Foto de perfil (sección About)**: reemplaza `public/assets/fher.png` (o `fher-no-bg.png` si `About.jsx` usa la versión sin fondo) manteniendo el mismo nombre de archivo, o actualiza la ruta en `About.jsx` si usas un nombre distinto.
+- **Foto de perfil (sección About)**: `public/assets/fher.jpg`, referenciada en `About.jsx` con `width="480" height="640"` (evita layout shift). Es una versión comprimida (JPEG, ~480px de ancho, ~50 KB) de la foto original — la foto fuente de la cámara puede pesar varios MB a resolución completa, y como en pantalla nunca se muestra a más de 240px de ancho, subir el archivo sin comprimir sería un desperdicio de banda real (Lighthouse lo marca directamente). Si cambias la foto, corre `node resize-photo.cjs <foto-original> 480` desde la raíz del proyecto (mismo mecanismo de canvas vía Playwright que usa `extract_ascii.cjs`, sin agregar una dependencia de procesamiento de imágenes solo para esto) y sube el `.jpg` resultante.
 - **Logo de Siscodex**: `public/assets/siscodex-nbg-trimmed.png`, referenciado en `Siscodex.jsx`.
 - **Imagen de preview al compartir el link (Open Graph/Twitter Card)**: `public/assets/hi-fher.png`, referenciada en `index.html` (`og:image`/`twitter:image`) con la URL absoluta `https://www.fherneysilva.com/assets/hi-fher.png`. Si cambias o reemplazas esta imagen, actualiza esas dos meta tags también (y la del JSON-LD `Person.image`, misma URL).
 - Todas las imágenes de contenido viven en `public/assets/` — cualquier imagen nueva debe ir ahí (no en `src/assets/`, que está reservado para assets empaquetados por Vite como `asciiData.js`).
