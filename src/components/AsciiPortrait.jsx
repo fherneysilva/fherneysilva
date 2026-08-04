@@ -6,11 +6,13 @@ const memoryCache = {};
 
 const calculateSize = (width) => {
   if (width <= 480) {
-    return Math.min(220, width - 40);
-  } else if (width <= 768) {
-    return Math.min(280, width - 60);
+    return Math.min(250, width - 40);
+  } else if (width <= 1024) {
+    return 320;
+  } else if (width <= 1300) {
+    return 380;
   } else {
-    return 400;
+    return 460;
   }
 };
 
@@ -24,7 +26,7 @@ const AsciiPortrait = () => {
   const [dataReady, setDataReady] = useState(false);
 
   // ASCII character set from sparse to dense
-  const chars = " .:-=+*#%@".split("");
+  const chars = ".:-=+*#%@".split("");
 
   useEffect(() => {
     const updateSize = () => {
@@ -80,10 +82,10 @@ const AsciiPortrait = () => {
     const pixels = imageData.data;
 
     const rawParticles = [];
-    const isMobileSize = targetSize <= 280;
+    const isMobileSize = targetSize <= 320;
     const fontSize = isMobileSize ? 5 : 7;
-    const colGap = fontSize * 0.7;
-    const rowGap = fontSize * 1.1;
+    const colGap = fontSize * 0.55;
+    const rowGap = fontSize * 0.75;
 
     for (let y = 0; y < canvasHeight; y += rowGap) {
       for (let x = 0; x < canvasWidth; x += colGap) {
@@ -96,12 +98,12 @@ const AsciiPortrait = () => {
           const b = pixels[i + 2];
           const brightness = (r + g + b) / (3 * 255);
           const charIndex = Math.floor(brightness * (chars.length - 1));
-          
+
           rawParticles.push({
             x: Number(x.toFixed(1)),
             y: Number(y.toFixed(1)),
             char: chars[charIndex],
-            alpha: Number((0.4 + brightness * 0.6).toFixed(2)),
+            alpha: Number((0.45 + brightness * 0.55).toFixed(2)),
           });
         }
       }
@@ -110,7 +112,7 @@ const AsciiPortrait = () => {
   };
 
   useEffect(() => {
-    const isMobileSize = size <= 280;
+    const isMobileSize = size <= 320;
     
     // 1. Check pre-calculated static data
     if (asciiData[size]) {
@@ -169,7 +171,7 @@ const AsciiPortrait = () => {
       mouse.x += (mouseTarget.x - mouse.x) * 0.15;
       mouse.y += (mouseTarget.y - mouse.y) * 0.15;
 
-      const isMobileSize = size <= 280;
+      const isMobileSize = size <= 320;
       const fontSize = isMobileSize ? 5 : 7;
       ctx.font = `${fontSize}px monospace`;
       ctx.textAlign = "center";

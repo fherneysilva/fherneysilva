@@ -13,8 +13,8 @@ const path = require('path');
   const dataUrl = `data:image/png;base64,${imgBase64}`;
 
   const results = await page.evaluate(async (dataUrl) => {
-    const chars = " .:-=+*#%@".split("");
-    const sizes = [400, 280, 220];
+    const chars = ".:-=+*#%@".split("");
+    const sizes = [460, 380, 320, 250];
     const data = {};
 
     const img = new Image();
@@ -48,10 +48,10 @@ const path = require('path');
       const pixels = imageData.data;
 
       const particles = [];
-      const isMobileSize = size <= 280;
+      const isMobileSize = size <= 320;
       const fontSize = isMobileSize ? 5 : 7;
-      const colGap = fontSize * 0.7; 
-      const rowGap = fontSize * 1.1;
+      const colGap = fontSize * 0.55;
+      const rowGap = fontSize * 0.75;
 
       for (let y = 0; y < canvasHeight; y += rowGap) {
         for (let x = 0; x < canvasWidth; x += colGap) {
@@ -71,7 +71,7 @@ const path = require('path');
               x: Number(x.toFixed(1)),
               y: Number(y.toFixed(1)),
               char: char,
-              alpha: Number((0.4 + brightness * 0.6).toFixed(2))
+              alpha: Number((0.45 + brightness * 0.55).toFixed(2))
             });
           }
         }

@@ -29,7 +29,7 @@
 }
 
 .App {
-  font-family: "NTR";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background-color: var(--navy);
   color: var(--lightest-slate);
   display: flex;
@@ -80,6 +80,7 @@ a:hover {
 
 .section-header {
   display: flex;
+  align-items: center;
   padding-bottom: 20px;
   width: 100%;
 }
@@ -87,15 +88,16 @@ a:hover {
 .section-header::after {
   content: "";
   display: block;
-  width: 300px;
-  margin-top: 39px;
+  flex-grow: 1;
+  width: auto;
+  margin-top: 0;
   height: 1px;
   margin-left: 20px;
   background-color: var(--lightest-navy);
 }
 
 .section-title {
-  font-family: "NTR", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   color: var(--lightest-slate);
   font-size: 46px;
   font-weight: bold;
