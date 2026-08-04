@@ -28,6 +28,8 @@ const Intro = () => {
           </span>
         </div>
         <FadeInSection>
+          <div className="intro-tagline">{t.intro.tagline}</div>
+          <div className="intro-role">{t.intro.role}</div>
           <div className="intro-desc">{t.intro.desc}</div>
           <a href="mailto:fherneysilva13@gmail.com" className="intro-contact">
             <EmailRoundedIcon />
