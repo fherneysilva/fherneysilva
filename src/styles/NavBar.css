@@ -39,13 +39,37 @@
   }
 
   .lang-toggle-btn:hover {
-    background: rgba(232, 163, 77, 0.08);
+    background: rgba(var(--green-rgb), 0.08);
   }
 
-  @media only screen and (max-width: 800px) {
+  .theme-toggle-btn {
+    margin-left: 10px;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--green-bright);
+    background: transparent;
+    border: 1px solid var(--green-bright);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .theme-toggle-btn:hover {
+    background: rgba(var(--green-rgb), 0.08);
+  }
+
+  @media only screen and (max-width: 991px) {
     .lang-toggle-btn {
       margin: 0;
       align-self: center;
+    }
+
+    .theme-toggle-btn {
+      margin: 0;
     }
 
 
