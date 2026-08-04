@@ -25,6 +25,7 @@ Este archivo es la referencia rápida para trabajar en el código. La documentac
 - [`docs/content-guide.md`](docs/content-guide.md) — cómo actualizar el contenido (experiencia, proyectos, textos EN/ES, fotos, retrato ASCII, paleta de colores) sin tocar lógica.
 - [`docs/deployment.md`](docs/deployment.md) — estado actual del despliegue en GitHub Pages, dominio propio y qué falta configurar.
 - [`docs/analytics.md`](docs/analytics.md) — cómo está configurado Google Analytics y cómo ver las métricas.
+- [`docs/audit.md`](docs/audit.md) — resultados de la auditoría Lighthouse (SEO 100, accesibilidad 100, buenas prácticas 100, rendimiento 92) y cómo volver a auditar.
 
 ## Arquitectura
 

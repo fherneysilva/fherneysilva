@@ -94,6 +94,8 @@ El efecto de partículas ASCII en la sección Intro (`AsciiPortrait.jsx`) **no**
 
 ## SEO
 
+> Ver [`audit.md`](audit.md) para los resultados de la auditoría Lighthouse (SEO, accesibilidad, buenas prácticas, rendimiento) y el detalle de qué se corrigió.
+
 Como el sitio es una SPA de una sola página estática (sin SSR ni pre-renderizado), el SEO se apoya en lo que puede ir directamente en `index.html` y en `public/`:
 
 - **Meta tags** en `index.html`: `title`, `description`, `canonical`, Open Graph (`og:*`) y Twitter Card (`twitter:*`, `summary_large_image` con imagen — usa `public/assets/hi-fher.png` como preview al compartir el link).
