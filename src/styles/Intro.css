@@ -101,6 +101,15 @@
   outline: none;
 }
 
+/* Laptop — keeps the greeting on one line on common laptop widths, which
+   otherwise jump straight from the tablet size to the full 80px size */
+@media only screen and (min-width: 1025px) and (max-width: 1500px) {
+  .intro-title,
+  .intro-name {
+    font-size: 66px;
+  }
+}
+
 /* Tablet */
 @media only screen and (max-width: 1024px) {
   .intro-title,
