@@ -5,7 +5,7 @@
 El sitio se despliega automáticamente a GitHub Pages con GitHub Actions, definido en [`.github/workflows/deploy.yml`](../.github/workflows/deploy.yml).
 
 - **Disparador**: cada push a `master`.
-- **Build**: `npm ci` + `npm run build` (Node 20), genera `dist/`.
+- **Build**: `npm ci` + `npm run build` (Node 22), genera `dist/`.
 - **Publicación**: `actions/upload-pages-artifact` + `actions/deploy-pages` (mecanismo nativo de GitHub Pages, sin rama `gh-pages` ni paquetes de terceros).
 
 ## Flujo de ramas
