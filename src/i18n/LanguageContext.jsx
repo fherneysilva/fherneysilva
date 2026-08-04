@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import PropTypes from "prop-types";
 import content from "./content";
 import { LanguageContext } from "./context";
@@ -13,6 +13,10 @@ const getInitialLanguage = () => {
 
 export const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = useState(getInitialLanguage);
+
+  useEffect(() => {
+    document.documentElement.setAttribute("lang", language);
+  }, [language]);
 
   const toggleLanguage = useCallback(() => {
     setLanguage((prev) => {

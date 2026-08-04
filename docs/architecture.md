@@ -91,6 +91,16 @@ El efecto de partículas ASCII en la sección Intro (`AsciiPortrait.jsx`) **no**
 
 **Regenerar el retrato**: si cambia `public/profile.png`, hay que correr `node extract_ascii.cjs` de nuevo y commitear el `asciiData.js` resultante — no ocurre automáticamente en el build.
 
+## SEO
+
+Como el sitio es una SPA de una sola página estática (sin SSR ni pre-renderizado), el SEO se apoya en lo que puede ir directamente en `index.html` y en `public/`:
+
+- **Meta tags** en `index.html`: `title`, `description`, `canonical`, Open Graph (`og:*`) y Twitter Card (`twitter:*`, `summary_large_image` con imagen — usa `public/assets/hi-fher.png` como preview al compartir el link).
+- **Datos estructurados**: un bloque `<script type="application/ld+json">` con schema.org `Person` (nombre, `jobTitle`, `worksFor: Siscodex`, `sameAs` con GitHub/LinkedIn/blog) para que buscadores puedan mostrar un rich snippet.
+- **`public/sitemap.xml`**: un único `<url>` (la raíz `/`, ya que no hay rutas adicionales que indexar).
+- **`public/robots.txt`**: permite todo el crawling y referencia el sitemap.
+- **`lang` dinámico**: `LanguageContext.jsx` actualiza `document.documentElement.lang` (`"en"`/`"es"`) cada vez que cambia el idioma, y el script inline de `index.html` lo fija correctamente antes del primer render (mismo mecanismo que evita el parpadeo de tema) — así el atributo `lang` real coincide con el idioma que ve el visitante, no queda fijo en `"en"`.
+
 ## Calidad de código
 
 - `npm run lint` corre ESLint con reglas de `eslint-plugin-react-hooks` (incluye la regla estricta `set-state-in-effect`) y `eslint-plugin-react-refresh`.
