@@ -92,7 +92,7 @@ const JobList = () => {
             sx={{
               color: "var(--slate)",
               fontFamily: "NTR",
-              fontSize: "14px",
+              fontSize: "16px",
               textAlign: isMobile ? "center" : "left",
               alignItems: isMobile ? "center" : "flex-start",
               textTransform: "none",
