@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/Siscodex.css";
 import FadeInSection from "./FadeInSection";
 import { useLanguage } from "../i18n/useLanguage";
+import { trackEvent } from "../utils/analytics";
 import { FiUsers, FiCloud, FiTrendingUp, FiAward, FiCode, FiServer, FiRefreshCw } from "react-icons/fi";
 
 const whyIcons = [FiUsers, FiCloud, FiTrendingUp, FiAward];
@@ -83,7 +84,11 @@ const Siscodex = () => {
           </div>
           <div className="siscodex-cta">
             <p className="siscodex-cta-text">{t.siscodex.ctaText}</p>
-            <a className="siscodex-cta-button" href="mailto:fherneysilva13@gmail.com">
+            <a
+              className="siscodex-cta-button"
+              href="mailto:fherneysilva13@gmail.com"
+              onClick={() => trackEvent("contact_click", { location: "siscodex" })}
+            >
               {t.siscodex.ctaButton}
             </a>
           </div>

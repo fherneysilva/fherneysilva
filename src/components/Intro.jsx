@@ -5,6 +5,7 @@ import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
 import FadeInSection from "./FadeInSection";
 import AsciiPortrait from "./AsciiPortrait";
 import { useLanguage } from "../i18n/useLanguage";
+import { trackEvent } from "../utils/analytics";
 
 const Intro = () => {
   const { t } = useLanguage();
@@ -31,7 +32,11 @@ const Intro = () => {
           <div className="intro-tagline">{t.intro.tagline}</div>
           <div className="intro-role">{t.intro.role}</div>
           <div className="intro-desc">{t.intro.desc}</div>
-          <a href="mailto:fherneysilva13@gmail.com" className="intro-contact">
+          <a
+            href="mailto:fherneysilva13@gmail.com"
+            className="intro-contact"
+            onClick={() => trackEvent("contact_click", { location: "intro" })}
+          >
             <EmailRoundedIcon />
             {" " + t.intro.contact}
           </a>
