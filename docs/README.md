@@ -11,6 +11,7 @@ Este directorio contiene la documentación técnica y funcional del proyecto `fh
 | [`content-guide.md`](content-guide.md) | Cómo actualizar experiencia, proyectos, textos EN/ES, fotos, el retrato ASCII y la paleta de colores sin tocar lógica de componentes. |
 | [`deployment.md`](deployment.md) | Cómo se publica el sitio hoy (GitHub Actions + dominio propio) — estado real, no aspiracional. |
 | [`analytics.md`](analytics.md) | Cómo está configurado Google Analytics y cómo ver las métricas de tráfico. |
+| [`audit.md`](audit.md) | Resultados de la auditoría Lighthouse (SEO, accesibilidad, buenas prácticas, rendimiento), qué se corrigió y cómo volver a auditar. |
 
 ## Cómo usar esta documentación
 
@@ -18,6 +19,7 @@ Este directorio contiene la documentación técnica y funcional del proyecto `fh
 - Si vas a **entender o modificar cómo funciona el sitio**: empieza por `architecture.md`, y usa `features.md` como mapa de qué componente corresponde a qué sección visible.
 - Si vas a **publicar cambios**: revisa `deployment.md` para el flujo de ramas (`develop` → `master`).
 - Si quieres **ver cuánta gente visita el sitio**: `analytics.md`.
+- Si vas a **revisar SEO, accesibilidad o velocidad de carga**: `audit.md`.
 - El archivo [`CLAUDE.md`](../CLAUDE.md) en la raíz del repo es la referencia rápida (comandos, arquitectura resumida) pensada para trabajar con Claude Code; esta carpeta es la versión extendida.
 
 ## Convenciones del proyecto
