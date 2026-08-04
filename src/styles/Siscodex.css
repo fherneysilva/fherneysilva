@@ -56,6 +56,10 @@
   max-width: 100%;
 }
 
+:root[data-theme="light"] .siscodex-logo {
+  filter: invert(1);
+}
+
 .siscodex-text {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   color: var(--slate);

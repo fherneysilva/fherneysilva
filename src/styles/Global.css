@@ -1,4 +1,5 @@
-:root {
+:root,
+:root[data-theme="dark"] {
   --dark-navy: #0e0e11;
   --navy: #16161a;
   --light-navy: #1e1e24;
@@ -9,6 +10,24 @@
   --lightest-slate: #e5e3de;
   --white: #f5f3ee;
   --green-bright: #e8a34d;
+  --green-rgb: 232, 163, 77;
   --green-tint: rgba(232, 163, 77, 0.1);
   --yellow: #ffd166;
+}
+
+:root[data-theme="light"] {
+  /* kept in sync with GLOW_COLOR in AsciiPortrait.jsx (the portrait's glow) */
+  --dark-navy: #16161a;
+  --navy: #faf8f5;
+  --light-navy: #f1eee8;
+  --lightest-navy: #e2ddd3;
+  --navy-shadow: rgba(28, 26, 23, 0.12);
+  --slate: #6b6560;
+  --light-slate: #55504b;
+  --lightest-slate: #1c1a17;
+  --white: #1c1a17;
+  --green-bright: #a8671f;
+  --green-rgb: 168, 103, 31;
+  --green-tint: rgba(168, 103, 31, 0.08);
+  --yellow: #9c7a1a;
 }

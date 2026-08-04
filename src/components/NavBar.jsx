@@ -3,15 +3,17 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import { FiFeather } from "react-icons/fi";
+import { FiFeather, FiSun, FiMoon } from "react-icons/fi";
 import "../styles/NavBar.css";
 import { useLanguage } from "../i18n/useLanguage";
+import { useTheme } from "../theme/useTheme";
 import SiscodexNavLabel from "./SiscodexNavLabel";
 
 const NavBar = () => {
   const [expanded, setExpanded] = useState(false);
   const scrollPos = useRef(0);
   const { t, language, toggleLanguage } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     if (expanded) {
@@ -35,7 +37,7 @@ const NavBar = () => {
       fixed="top"
       expand="lg"
       className="navbar"
-      data-bs-theme="dark"
+      data-bs-theme={theme}
       expanded={expanded}
       onToggle={(isExpanded) => setExpanded(isExpanded)}
     >
@@ -86,6 +88,15 @@ const NavBar = () => {
               title={language === "en" ? "Ver en español" : "View in English"}
             >
               {language === "en" ? "ES" : "EN"}
+            </button>
+            <button
+              type="button"
+              className="theme-toggle-btn"
+              onClick={toggleTheme}
+              title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+              aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            >
+              {theme === "dark" ? <FiSun size={15} /> : <FiMoon size={15} />}
             </button>
           </Nav>
         </Navbar.Collapse>

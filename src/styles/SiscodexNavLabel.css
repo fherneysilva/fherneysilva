@@ -18,6 +18,24 @@
   animation: siscodex-shine 3.5s linear infinite;
 }
 
+:root[data-theme="light"] .siscodex-nav-label {
+  background: linear-gradient(
+    100deg,
+    #8a8478 0%,
+    #55504b 20%,
+    #1c1a17 35%,
+    #55504b 50%,
+    #8a8478 70%,
+    #55504b 85%,
+    #8a8478 100%
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #55504b;
+}
+
 @keyframes siscodex-shine {
   0% {
     background-position: 0% center;

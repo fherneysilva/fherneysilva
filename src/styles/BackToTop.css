@@ -32,7 +32,7 @@
   background: var(--green-tint);
   border-color: var(--green-bright);
   transform: translateY(-4px) scale(1.08);
-  box-shadow: 0 8px 20px rgba(232, 163, 77, 0.25);
+  box-shadow: 0 8px 20px rgba(var(--green-rgb), 0.25);
 }
 
 .back-to-top-fab:active {
