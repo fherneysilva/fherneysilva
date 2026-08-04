@@ -11,7 +11,7 @@ Estructura por sección (mismas claves en `en` y `es`):
 ```js
 {
   nav: { home, about, experience, software, blog, siscodex },
-  intro: { ... },      // nombre, tagline, frases del typewriter
+  intro: { ... },      // saludo, nombre, tagline en cursiva, rol, párrafo, cta
   about: { ... },       // bio, leadIn, objetivo profesional
   experience: { ... },  // título de sección + datos por empleo (usado por JobList.jsx)
   projects: { ... },    // grupos de proyectos y sus tarjetas
@@ -45,7 +45,21 @@ Si cambias la foto fuente del retrato animado:
 
 ## 5. Cambiar la paleta de colores
 
-Las variables de color viven en `src/styles/Global.css` (`--navy`, `--light-navy`, `--green-bright`, etc.) y se reutilizan en todos los `.css` de componente vía `var(--nombre)`. Cambiar un color ahí lo propaga a todo el sitio. La tabla de colores también está documentada (para referencia visual) en el `README.md` público.
+El sitio tiene **dos** paletas: oscura (default) y clara. Ambas viven en `src/styles/Global.css`, como las mismas variables (`--navy`, `--light-navy`, `--green-bright`, `--slate`, etc.) definidas dos veces:
+
+```css
+:root, :root[data-theme="dark"] { --navy: #16161a; --green-bright: #e8a34d; /* ... */ }
+:root[data-theme="light"]        { --navy: #faf8f5; --green-bright: #a8671f; /* ... */ }
+```
+
+Cambiar un color en cualquiera de los dos bloques lo propaga a todo el sitio (todo el CSS de componentes usa `var(--nombre)`, no colores hardcodeados). **Si tocas el acento (`--green-bright`/`--green-rgb`) o el fondo (`--navy`/`--dark-navy`)**, revisa también:
+
+- `AsciiPortrait.jsx` — el color de las partículas (`ACCENT_RGB`) y el color del glow en modo claro (`GLOW_COLOR`) están hardcodeados en JS (un canvas no puede leer variables CSS directamente) y hay que actualizarlos a mano para que combinen. Hay un comentario en el código señalando este acoplamiento.
+- `NavBar.css` / `BackToTop.css` — usan `rgba(var(--green-rgb), alpha)` para los tintes translúcidos; si cambias el acento, `--green-rgb` debe quedar en sync con `--green-bright` (mismo color, formato "r, g, b" sin `rgba()`).
+
+**Siscodex tiene su propio acento**, independiente del acento general del portafolio (para señalar que es una marca aparte): `--siscodex-accent` (emerald, `#10b981` oscuro / `#047a4f` claro), definido dentro de `.siscodex-card` en `Siscodex.css`. El brillo reflectivo del link "Siscodex" en el NavBar (`SiscodexNavLabel.css`) usa ese mismo verde pero con su propio gradiente hardcodeado (no una `var()`) — si cambias el emerald de Siscodex, actualiza también los tonos del gradiente ahí para que combinen.
+
+La tabla de colores también está documentada (para referencia visual, solo el tema oscuro) en el `README.md` público.
 
 ## 6. Buenas prácticas al editar contenido
 

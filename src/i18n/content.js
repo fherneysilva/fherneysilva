@@ -12,8 +12,10 @@ const content = {
       greeting: "hi, ",
       name: "fherney",
       nameSuffix: " here.",
+      tagline: "Building technology that scales.",
+      role: "Senior Software Engineer, Tech Lead & CEO of Siscodex.",
       desc:
-        "Software engineer and entrepreneur in Colombia. I build cloud infrastructure by day and grow my own software company by night — squeezing in personal projects and the occasional video game whenever I can. Occasionally both happen at the same time.",
+        "I build cloud infrastructure by day and lead my own software company by night. Between architecture, code, and personal projects, I always find time for the occasional video game. Every now and then, it all happens at once.",
       contact: "Contact me",
     },
     about: {
@@ -134,9 +136,51 @@ const content = {
     },
     siscodex: {
       sectionTitle: "/ my company",
-      badge: "Coming soon",
+      badge: "Launching August 2026",
       heading: "Siscodex",
-      text: "My own software company — solid engineering for businesses that want to grow without limits. We design scalable web and mobile apps on optimized cloud infrastructure. Officially launching soon.",
+      text: [
+        "I'm the founder and CEO of Siscodex, a technology company I lead alongside three co-founding partners, with a clear mission: helping organizations grow and evolve without technical limits. We lead the design and development of software solutions and cloud infrastructure that are solid, scalable, and built to meet the needs of constantly evolving businesses.",
+        "At Siscodex, we combine high-level engineering, modern architecture, and strategic vision to turn complex challenges into efficient, sustainable, high-impact technology solutions. We work as a strategic technology partner for our clients, supporting them from their current challenges to their next stage of growth.",
+        "We build the technology that lets businesses grow today and stay ready for what's next.",
+      ],
+      servicesLabel: "What we do",
+      services: [
+        {
+          title: "Custom Software",
+          desc: "Custom web and mobile application development with modern technologies, ensuring clean, maintainable code.",
+        },
+        {
+          title: "Cloud Infrastructure",
+          desc: "DevOps automation, CI/CD, containerization and infrastructure as code (IaC) management.",
+        },
+        {
+          title: "Platform Modernization",
+          desc: "Migrating legacy systems to modern architectures based on microservices and cloud-native technologies.",
+        },
+      ],
+      whyLabel: "Why Siscodex",
+      why: [
+        {
+          title: "Direct access",
+          desc: "You work directly with the engineers building your product.",
+        },
+        {
+          title: "Cloud expertise",
+          desc: "Secure, efficient architecture from day one.",
+        },
+        {
+          title: "Built to scale",
+          desc: "Clean, modular code ready for what's next.",
+        },
+        {
+          title: "Senior engineering",
+          desc: "Experience and best practices in every line of code.",
+        },
+      ],
+      processLabel: "How we work",
+      process: ["Discovery", "Planning", "Development", "Launch"],
+      ctaText: "Looking for a technology partner for your next project?",
+      ctaButton: "Let's talk",
     },
     blog: {
       sectionTitle: "/ blog",
@@ -165,8 +209,10 @@ const content = {
       greeting: "hola, ",
       name: "fherney",
       nameSuffix: " aquí.",
+      tagline: "Construyendo tecnología que escala.",
+      role: "Senior Software Engineer, Tech Lead y CEO de Siscodex.",
       desc:
-        "Ingeniero de software y emprendedor en Colombia. Construyo infraestructura cloud de día y hago crecer mi propia empresa de software de noche — sacando tiempo para proyectos personales y algún videojuego cuando puedo. De vez en cuando, ambas cosas pasan al mismo tiempo.",
+        "Construyo infraestructura cloud de día y lidero mi propia empresa de software de noche. Entre arquitectura, código y proyectos personales, siempre encuentro tiempo para algún videojuego. De vez en cuando, todo pasa al mismo tiempo.",
       contact: "Contáctame",
     },
     about: {
@@ -287,9 +333,51 @@ const content = {
     },
     siscodex: {
       sectionTitle: "/ mi empresa",
-      badge: "Próximamente",
+      badge: "Lanzamos agosto 2026",
       heading: "Siscodex",
-      text: "Mi propia empresa de tecnología — ingeniería de software sólida para empresas que buscan crecer sin límites. Diseñamos aplicaciones web y móviles escalables sobre infraestructura en la nube optimizada. Lanzamiento oficial próximamente.",
+      text: [
+        "Soy fundador y CEO de Siscodex, una empresa de tecnología que lidero junto a tres socios cofundadores, con una misión clara: ayudar a las organizaciones a crecer y evolucionar sin límites técnicos. Lideramos el diseño y desarrollo de soluciones de software e infraestructura cloud sólidas, escalables y preparadas para responder a las necesidades de negocios en constante evolución.",
+        "En Siscodex combinamos ingeniería de alto nivel, arquitectura moderna y visión estratégica para transformar desafíos complejos en soluciones tecnológicas eficientes, sostenibles y de alto impacto. Trabajamos como un aliado tecnológico estratégico para nuestros clientes, acompañándolos desde sus retos actuales hasta sus próximos desafíos de crecimiento.",
+        "Construimos la tecnología que permite a las empresas crecer hoy y estar preparadas para lo que viene.",
+      ],
+      servicesLabel: "Qué hacemos",
+      services: [
+        {
+          title: "Software a Medida",
+          desc: "Desarrollo de aplicaciones web y móviles personalizadas con tecnologías modernas, asegurando código limpio y mantenible.",
+        },
+        {
+          title: "Infraestructura Cloud",
+          desc: "Automatización DevOps, CI/CD, contenedorización y gestión de infraestructura como código (IaC).",
+        },
+        {
+          title: "Modernización de Plataformas",
+          desc: "Migración de sistemas legados a arquitecturas modernas basadas en microservicios y tecnologías cloud-native.",
+        },
+      ],
+      whyLabel: "Por qué Siscodex",
+      why: [
+        {
+          title: "Trato directo",
+          desc: "Trabajas directo con los ingenieros que construyen tu producto.",
+        },
+        {
+          title: "Experiencia cloud",
+          desc: "Arquitectura segura y eficiente desde el día uno.",
+        },
+        {
+          title: "Listo para escalar",
+          desc: "Código limpio y modular, preparado para lo que sigue.",
+        },
+        {
+          title: "Ingeniería senior",
+          desc: "Experiencia y buenas prácticas en cada línea de código.",
+        },
+      ],
+      processLabel: "Cómo trabajamos",
+      process: ["Descubrimiento", "Planeación", "Desarrollo", "Lanzamiento"],
+      ctaText: "¿Buscas un aliado tecnológico para tu próximo proyecto?",
+      ctaButton: "Hablemos",
     },
     blog: {
       sectionTitle: "/ blog",

@@ -2,38 +2,38 @@
   display: inline-block;
   background: linear-gradient(
     100deg,
-    #8a8d91 0%,
-    #c8cbcf 20%,
-    #ffffff 35%,
-    #c8cbcf 50%,
-    #8a8d91 70%,
-    #c8cbcf 85%,
-    #8a8d91 100%
+    #065f46 0%,
+    #10b981 20%,
+    #6ee7b7 35%,
+    #10b981 50%,
+    #065f46 70%,
+    #10b981 85%,
+    #065f46 100%
   );
   background-size: 300% auto;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: #c8cbcf;
+  color: #10b981;
   animation: siscodex-shine 3.5s linear infinite;
 }
 
 :root[data-theme="light"] .siscodex-nav-label {
   background: linear-gradient(
     100deg,
-    #8a8478 0%,
-    #55504b 20%,
-    #1c1a17 35%,
-    #55504b 50%,
-    #8a8478 70%,
-    #55504b 85%,
-    #8a8478 100%
+    #03543a 0%,
+    #047a4f 20%,
+    #10b981 35%,
+    #047a4f 50%,
+    #03543a 70%,
+    #047a4f 85%,
+    #03543a 100%
   );
   background-size: 300% auto;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: #55504b;
+  color: #047a4f;
 }
 
 @keyframes siscodex-shine {
