@@ -126,6 +126,7 @@
     min-height: 80vh;
     min-height: 80dvh;
     padding: 20px 24px;
+    padding-top: 56px;
     gap: 20px;
   }
 
@@ -169,6 +170,7 @@
 @media only screen and (max-width: 480px) {
   #intro {
     padding: 16px;
+    padding-top: 48px;
     gap: 16px;
   }
 

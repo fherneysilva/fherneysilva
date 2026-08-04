@@ -44,19 +44,35 @@
 
   @media only screen and (max-width: 800px) {
     .lang-toggle-btn {
-      margin: 12px 0;
-      align-self: flex-start;
+      margin: 0;
+      align-self: center;
     }
 
 
     .navbar-brand  {
         display: none;
     }
-  
+
     .nav-link {
         display: block;
         padding: 12px 0;
       }
+
+    .navbar-nav.ms-auto {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 20px;
+      margin-top: 16px;
+    }
+
+    .navbar-nav.ms-auto .nav-link {
+      display: inline-flex;
+      align-items: center;
+      width: auto;
+      padding: 0;
+    }
 
     .navbar-toggler:focus {
         box-shadow: none !important;
