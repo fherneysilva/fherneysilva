@@ -108,14 +108,14 @@
 
 | Color          | Hex                                                              |
 | -------------- | ----------------------------------------------------------------- |
-| Navy           | ![#0a192f](https://placehold.co/15/0a192f/0a192f.png) `#0a192f` |
-| Light Navy     | ![#112240](https://placehold.co/15/112240/112240.png) `#112240` |
-| Lightest Navy  | ![#233554](https://placehold.co/15/233554/233554.png) `#233554` |
-| Slate          | ![#8892b0](https://placehold.co/15/8892b0/8892b0.png) `#8892b0` |
-| Light Slate    | ![#a8b2d1](https://placehold.co/15/a8b2d1/a8b2d1.png) `#a8b2d1` |
-| Lightest Slate | ![#ccd6f6](https://placehold.co/15/ccd6f6/ccd6f6.png) `#ccd6f6` |
-| White          | ![#e6f1ff](https://placehold.co/15/e6f1ff/e6f1ff.png) `#e6f1ff` |
-| Green          | ![#64ffda](https://placehold.co/15/64ffda/64ffda.png) `#64ffda` |
+| Navy           | ![#16161a](https://placehold.co/15/16161a/16161a.png) `#16161a` |
+| Light Navy     | ![#1e1e24](https://placehold.co/15/1e1e24/1e1e24.png) `#1e1e24` |
+| Lightest Navy  | ![#2a2a32](https://placehold.co/15/2a2a32/2a2a32.png) `#2a2a32` |
+| Slate          | ![#9b9aa3](https://placehold.co/15/9b9aa3/9b9aa3.png) `#9b9aa3` |
+| Light Slate    | ![#b7b5ba](https://placehold.co/15/b7b5ba/b7b5ba.png) `#b7b5ba` |
+| Lightest Slate | ![#e5e3de](https://placehold.co/15/e5e3de/e5e3de.png) `#e5e3de` |
+| White          | ![#f5f3ee](https://placehold.co/15/f5f3ee/f5f3ee.png) `#f5f3ee` |
+| Amber          | ![#e8a34d](https://placehold.co/15/e8a34d/e8a34d.png) `#e8a34d` |
 
 ---
 
