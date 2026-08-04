@@ -4,7 +4,7 @@ Este archivo brinda contexto a Claude Code (claude.ai/code) al trabajar con el c
 
 ## Proyecto
 
-Este es el código fuente de gazijarin.com (v2) — un sitio de portafolio personal construido con Vite + React 19, Material UI, Bootstrap 5 y React Router. Se despliega en `www.gazijarin.com` (ver `CNAME`).
+Este es el portafolio personal de Fherney Silva — un sitio de una sola página construido con Vite + React 19, Material UI, Bootstrap 5 y React Router, que presenta su experiencia, proyectos y habilidades. Se despliega en GitHub Pages bajo `fherneysilva.github.io`.
 
 ## Comandos
 
@@ -14,14 +14,14 @@ Este es el código fuente de gazijarin.com (v2) — un sitio de portafolio perso
 - `npm run preview` — previsualiza un build de producción
 - `npm run lint` — ejecuta ESLint sobre el proyecto (configuración flat en `eslint.config.js`)
 
-No hay ningún script de test runner configurado en `package.json`. Existe `src/App.test.jsx` y usa `@testing-library/react`, pero no hay un test runner (p. ej. Vitest/Jest) conectado — verifica esto antes de asumir que se pueden correr tests. Playwright es una devDependency pero solo se usa en el script puntual `extract_ascii.cjs` (ver abajo), no como framework de testing; no existe `playwright.config`.
+No hay ningún test runner configurado en `package.json` ni script de test.
 
 ## Arquitectura
 
-- **SPA con rutas** definidas en `src/App.jsx`: `/` renderiza el portafolio completo en scroll (Intro, About, Experience, Projects, HardwareProjects, Art, Credits como secciones apiladas), `/art` renderiza `ArtGallery`, y `/hardware/:projectId` renderiza `ProjectLog` (páginas de detalle por proyecto).
+- **SPA de una sola ruta** definida en `src/App.jsx`: `/` renderiza el portafolio completo en scroll (Intro, About, Experience, Projects, Blog, Siscodex, Credits como secciones apiladas).
 - **Componentes** viven de forma plana en `src/components/`, cada uno normalmente emparejado con una hoja de estilos del mismo nombre en `src/styles/` (importada directamente por el componente, no vía CSS modules).
-- **NavBar y SidebarNav** se montan globalmente en `App.jsx` junto al contenido enrutado — proveen navegación persistente en todas las rutas.
-- **RobotGame** es un overlay/easter-egg opcional activado por un botón flotante "game mode" en `App.jsx` (el estado vive en `App` y se pasa vía la prop `active`); se renderiza sobre el contenido de la página sin importar la ruta.
+- **NavBar y SidebarNav** se montan globalmente en `App.jsx` junto al contenido enrutado — proveen navegación persistente. **BackToTop** es un botón flotante que aparece al hacer scroll.
+- **i18n**: selector de idioma EN/ES implementado sin librerías externas — `src/i18n/content.js` (diccionario `{ en, es }`), `src/i18n/context.js` + `LanguageContext.jsx` (Provider, envuelve `App` desde `main.jsx`) y `useLanguage.js` (hook de consumo). La elección se persiste en `localStorage` bajo la key `portfolio-lang`.
 - **Retrato ASCII**: `src/assets/asciiData.js` contiene renderizados de arte ASCII precalculados de la imagen de perfil, consumidos por `AsciiPortrait.jsx`. `extract_ascii.cjs` (script Node/Playwright en la raíz, no forma parte del bundle de la app) regenera estos datos rasterizando `public/profile.png` en un canvas de navegador headless — vuelve a ejecutarlo manualmente con `node extract_ascii.cjs` si cambia la imagen fuente.
-- **Assets estáticos**: imágenes/fuentes/íconos servidos desde `public/` (favicons, fuentes, manifest) vs. assets importados en `src/assets/` (empaquetados por Vite). `public/assets/` contiene imágenes de proyectos de arte/hardware referenciadas por `Projects`, `HardwareProjects`, `Art` y `ProjectLog`.
+- **Assets estáticos**: imágenes/fuentes/íconos servidos desde `public/` (favicon, fuentes, manifest) vs. assets importados en `src/assets/` (empaquetados por Vite). `public/assets/` contiene las fotos de perfil y el logo de Siscodex referenciados por `About`, `Intro` y `Siscodex`.
 - **Estilos**: mezcla de hojas de estilo globales (`src/index.css`, `src/App.css`, `src/styles/Global.css`) y CSS por componente; el CSS de Bootstrap se importa globalmente en `main.jsx`, mientras que los componentes de MUI se usan selectivamente por componente.
