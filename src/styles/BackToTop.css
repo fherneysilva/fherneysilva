@@ -1,0 +1,56 @@
+.back-to-top-fab {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 999;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--light-navy);
+  border: 1px solid var(--lightest-navy);
+  color: var(--green-bright);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(16px) scale(0.9);
+  pointer-events: none;
+  transition: opacity 0.3s ease,
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(2, 12, 27, 0.4);
+}
+
+.back-to-top-fab--visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.back-to-top-fab:hover {
+  background: var(--green-tint);
+  border-color: var(--green-bright);
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 8px 20px rgba(100, 255, 218, 0.25);
+}
+
+.back-to-top-fab:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+@media only screen and (max-width: 600px) {
+  .back-to-top-fab {
+    right: 16px;
+    bottom: 16px;
+    width: 42px;
+    height: 42px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top-fab {
+    transition: opacity 0.2s ease;
+    transform: none !important;
+  }
+}
