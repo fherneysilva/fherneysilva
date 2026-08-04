@@ -1,0 +1,107 @@
+#blog {
+  padding: 80px 0;
+  margin: auto;
+  max-width: 1000px;
+}
+
+.blog-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+  width: 100%;
+  padding: 2.25rem;
+  background-color: var(--light-navy);
+  border: 1px solid var(--lightest-navy);
+  border-radius: 16px;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.blog-card:hover {
+  transform: translateY(-7px);
+  background-color: var(--lightest-navy);
+  border-color: var(--green-bright);
+}
+
+.blog-icon {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--green-tint);
+  color: var(--green-bright);
+}
+
+.blog-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-eyebrow {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green-bright);
+  margin-bottom: 10px;
+}
+
+.blog-text {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--slate);
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0 0 18px;
+}
+
+.blog-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.blog-tag {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  color: var(--green-bright);
+  border: 1px solid var(--green-bright);
+  border-radius: 4px;
+  padding: 3px 10px;
+}
+
+.blog-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+  font-weight: bolder;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--lightest-slate);
+  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.blog-card:hover .blog-cta {
+  color: var(--green-bright);
+  transform: translateX(5px);
+}
+
+@media only screen and (max-width: 600px) {
+  #blog {
+    padding: 60px 20px;
+  }
+
+  .blog-card {
+    flex-direction: column;
+    padding: 1.75rem;
+  }
+
+  .blog-text {
+    font-size: 16px;
+  }
+}

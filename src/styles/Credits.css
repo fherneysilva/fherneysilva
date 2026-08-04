@@ -1,0 +1,15 @@
+#credits {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+}
+
+.ending-credits {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--slate);
+  text-align: center;
+  width: 100%;
+  font-size: 16px;
+  padding-bottom: 40px;
+}
