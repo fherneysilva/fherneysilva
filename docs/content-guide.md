@@ -32,6 +32,7 @@ Estructura por sección (mismas claves en `en` y `es`):
 
 - **Foto de perfil (sección About)**: reemplaza `public/assets/fher.png` (o `fher-no-bg.png` si `About.jsx` usa la versión sin fondo) manteniendo el mismo nombre de archivo, o actualiza la ruta en `About.jsx` si usas un nombre distinto.
 - **Logo de Siscodex**: `public/assets/siscodex-nbg-trimmed.png`, referenciado en `Siscodex.jsx`.
+- **Imagen de preview al compartir el link (Open Graph/Twitter Card)**: `public/assets/hi-fher.png`, referenciada en `index.html` (`og:image`/`twitter:image`) con la URL absoluta `https://www.fherneysilva.com/assets/hi-fher.png`. Si cambias o reemplazas esta imagen, actualiza esas dos meta tags también (y la del JSON-LD `Person.image`, misma URL).
 - Todas las imágenes de contenido viven en `public/assets/` — cualquier imagen nueva debe ir ahí (no en `src/assets/`, que está reservado para assets empaquetados por Vite como `asciiData.js`).
 
 ## 4. Regenerar el retrato ASCII

@@ -8,6 +8,7 @@ import "../styles/NavBar.css";
 import { useLanguage } from "../i18n/useLanguage";
 import { useTheme } from "../theme/useTheme";
 import SiscodexNavLabel from "./SiscodexNavLabel";
+import { trackEvent } from "../utils/analytics";
 
 const NavBar = () => {
   const [expanded, setExpanded] = useState(false);
@@ -56,7 +57,10 @@ const NavBar = () => {
             </Nav.Link>
           </Nav>
           <Nav className="ms-auto align-items-center" onSelect={() => setExpanded(false)}>
-            <Nav.Link href="mailto:fherneysilva13@gmail.com">
+            <Nav.Link
+              href="mailto:fherneysilva13@gmail.com"
+              onClick={() => trackEvent("contact_click", { location: "navbar" })}
+            >
               <EmailRoundedIcon style={{ fontSize: 20 }} />
             </Nav.Link>
             <Nav.Link

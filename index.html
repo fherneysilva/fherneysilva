@@ -5,22 +5,47 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#16161a" />
-    <meta name="description" content="Fherney Silva - Software Engineer" />
+    <meta name="description" content="Fherney Silva — Senior Software Engineer, Tech Lead, and founder of Siscodex. Building technology that scales." />
     <link rel="canonical" href="https://www.fherneysilva.com/" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.fherneysilva.com/" />
     <meta property="og:title" content="Fherney Silva - Software Engineer" />
-    <meta property="og:description" content="Fherney Silva - Software Engineer" />
-    <meta name="twitter:card" content="summary" />
-    <title>Fher</title>
+    <meta property="og:description" content="Senior Software Engineer, Tech Lead, and founder of Siscodex. Building technology that scales." />
+    <meta property="og:image" content="https://www.fherneysilva.com/assets/hi-fher.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Fherney Silva - Software Engineer" />
+    <meta name="twitter:description" content="Senior Software Engineer, Tech Lead, and founder of Siscodex. Building technology that scales." />
+    <meta name="twitter:image" content="https://www.fherneysilva.com/assets/hi-fher.png" />
+    <title>Fherney Silva - Software Engineer</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Fherney Silva",
+        "url": "https://www.fherneysilva.com/",
+        "image": "https://www.fherneysilva.com/assets/hi-fher.png",
+        "jobTitle": "Senior Software Engineer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Siscodex"
+        },
+        "sameAs": [
+          "https://github.com/fherneysilva",
+          "https://www.linkedin.com/in/fherneysilva/",
+          "https://fherneysilva.hashnode.dev/"
+        ]
+      }
+    </script>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=NTR&display=swap');
       @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
     </style>
     <script>
       (function () {
-        var stored = localStorage.getItem("portfolio-theme");
-        document.documentElement.setAttribute("data-theme", stored === "light" ? "light" : "dark");
+        var storedTheme = localStorage.getItem("portfolio-theme");
+        document.documentElement.setAttribute("data-theme", storedTheme === "light" ? "light" : "dark");
+        var storedLang = localStorage.getItem("portfolio-lang");
+        document.documentElement.setAttribute("lang", storedLang === "es" ? "es" : "en");
       })();
     </script>
     <!-- Google tag (gtag.js) -->

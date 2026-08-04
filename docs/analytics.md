@@ -33,6 +33,13 @@ El sitio usa **Google Analytics 4** para medir tráfico. La implementación es e
 
 Los informes estándar (no el de tiempo real) tardan típicamente 24–48 horas en poblarse la primera vez.
 
+## Evento de conversión: `contact_click`
+
+Además de la medición mejorada automática, se dispara un evento personalizado `contact_click` cada vez que un visitante hace clic en un enlace de contacto (`mailto:fherneysilva13@gmail.com`), con un parámetro `location` que identifica desde dónde se hizo clic: `intro` (botón "Contact me" del hero), `navbar` (ícono de sobre en la barra de navegación) o `siscodex` (botón "Let's talk"/"Hablemos" al cierre de la sección Siscodex).
+
+- **Implementación**: `src/utils/analytics.js` expone `trackEvent(name, params)`, un wrapper que llama a `window.gtag(...)` solo si existe (evita errores si un bloqueador de anuncios impide que cargue `gtag.js`). Se invoca desde el `onClick` de cada enlace de contacto en `Intro.jsx`, `NavBar.jsx` y `Siscodex.jsx`.
+- **Dónde verlo en GA4**: Informes → Interacción → Eventos, o crear un objetivo/conversión a partir de `contact_click` en Configurar → Eventos si se quiere medirlo como conversión formal.
+
 ## Qué NO expone GA4 (por diseño y por ley)
 
 - Nombre, email o identidad real de un visitante.
@@ -48,4 +55,3 @@ Actualizar el string `G-14P57CY0XJ` en **ambos** lugares donde aparece en `index
 ## Pendiente / no implementado
 
 - No hay banner de consentimiento de cookies. Para una audiencia mayormente colombiana esto no es legalmente obligatorio hoy, pero si el sitio empieza a recibir tráfico relevante de la Unión Europea, valdría la pena revisar un aviso de cookies (GDPR).
-- No se han configurado eventos personalizados ni objetivos de conversión (ej. "clic en Contact me") — la medición mejorada cubre lo básico, pero un evento específico para el botón de contacto sería una mejora natural si se quiere medir cuántos visitantes intentan contactar.
