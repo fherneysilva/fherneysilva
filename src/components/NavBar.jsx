@@ -13,6 +13,7 @@ import { trackEvent } from "../utils/analytics";
 const NavBar = () => {
   const [expanded, setExpanded] = useState(false);
   const scrollPos = useRef(0);
+  const suppressRestore = useRef(false);
   const { t, language, toggleLanguage } = useLanguage();
   const { theme, toggleTheme } = useTheme();
 
@@ -27,11 +28,19 @@ const NavBar = () => {
       document.body.style.position = "";
       document.body.style.top = "";
       document.body.style.width = "";
-      if (scrollY) {
+      // Closing because a nav link was tapped: let the browser navigate to
+      // the target section instead of snapping back to where we were.
+      if (scrollY && !suppressRestore.current) {
         window.scrollTo(0, parseInt(scrollY || "0") * -1);
       }
+      suppressRestore.current = false;
     }
   }, [expanded]);
+
+  const handleNavSelect = () => {
+    suppressRestore.current = true;
+    setExpanded(false);
+  };
 
   return (
     <Navbar
@@ -46,7 +55,7 @@ const NavBar = () => {
         <Navbar.Brand href="/">Fherney Silva</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto" onSelect={() => setExpanded(false)}>
+          <Nav className="me-auto" onSelect={handleNavSelect}>
             <Nav.Link href="/#intro">{t.nav.home}</Nav.Link>
             <Nav.Link href="/#about">{t.nav.about}</Nav.Link>
             <Nav.Link href="/#experience">{t.nav.experience}</Nav.Link>
