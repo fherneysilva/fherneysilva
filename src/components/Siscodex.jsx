@@ -21,7 +21,7 @@ const Siscodex = () => {
           <div className="siscodex-card-header">
             <img
               className="siscodex-logo"
-              src="/assets/siscodex-nbg-trimmed.png"
+              src={`${import.meta.env.BASE_URL}assets/siscodex-nbg-trimmed.png`}
               alt={t.siscodex.heading}
               width="560"
               height="58"

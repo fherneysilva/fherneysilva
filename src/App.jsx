@@ -54,7 +54,7 @@ function App() {
       <main id="content">
         <Routes>
           <Route
-            path="/"
+            path="*"
             element={
               <>
                 <Intro />

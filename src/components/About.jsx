@@ -58,7 +58,12 @@ const About = () => {
             {two}
           </div>
           <div className="about-image">
-            <img alt={t.about.imageAlt} src="/assets/fher.jpg" width="480" height="640" />
+            <img
+              alt={t.about.imageAlt}
+              src={`${import.meta.env.BASE_URL}assets/fher.jpg`}
+              width="480"
+              height="640"
+            />
           </div>
         </div>
       </FadeInSection>
