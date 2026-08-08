@@ -52,16 +52,16 @@ const NavBar = () => {
       onToggle={(isExpanded) => setExpanded(isExpanded)}
     >
       <Container>
-        <Navbar.Brand href="/">Fherney Silva</Navbar.Brand>
+        <Navbar.Brand href="#intro">Fherney Silva</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto" onSelect={handleNavSelect}>
-            <Nav.Link href="/#intro">{t.nav.home}</Nav.Link>
-            <Nav.Link href="/#about">{t.nav.about}</Nav.Link>
-            <Nav.Link href="/#experience">{t.nav.experience}</Nav.Link>
-            <Nav.Link href="/#projects">{t.nav.software}</Nav.Link>
-            <Nav.Link href="/#blog">{t.nav.blog}</Nav.Link>
-            <Nav.Link href="/#siscodex">
+            <Nav.Link href="#intro">{t.nav.home}</Nav.Link>
+            <Nav.Link href="#about">{t.nav.about}</Nav.Link>
+            <Nav.Link href="#experience">{t.nav.experience}</Nav.Link>
+            <Nav.Link href="#projects">{t.nav.software}</Nav.Link>
+            <Nav.Link href="#blog">{t.nav.blog}</Nav.Link>
+            <Nav.Link href="#siscodex">
               <SiscodexNavLabel text={t.nav.siscodex} />
             </Nav.Link>
           </Nav>

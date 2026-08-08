@@ -34,6 +34,7 @@ Estructura por sección (mismas claves en `en` y `es`):
 - **Logo de Siscodex**: `public/assets/siscodex-nbg-trimmed.png`, referenciado en `Siscodex.jsx`.
 - **Imagen de preview al compartir el link (Open Graph/Twitter Card)**: `public/assets/hi-fher.png`, referenciada en `index.html` (`og:image`/`twitter:image`) con la URL absoluta `https://www.fherneysilva.com/assets/hi-fher.png`. Si cambias o reemplazas esta imagen, actualiza esas dos meta tags también (y la del JSON-LD `Person.image`, misma URL).
 - Todas las imágenes de contenido viven en `public/assets/` — cualquier imagen nueva debe ir ahí (no en `src/assets/`, que está reservado para assets empaquetados por Vite como `asciiData.js`).
+- **Al referenciar una imagen nueva desde un componente `.jsx`**, no hardcodees la ruta absoluta (`src="/assets/algo.jpg"`) — usá `` src={`${import.meta.env.BASE_URL}assets/algo.jpg`} `` (mismo patrón que `About.jsx`/`Siscodex.jsx`). Ver [`deployment.md`](deployment.md#compatibilidad-con-hosting-en-subcarpeta-fallback-de-githubio) para el porqué.
 
 ## 4. Regenerar el retrato ASCII
 

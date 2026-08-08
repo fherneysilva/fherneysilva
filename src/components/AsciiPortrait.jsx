@@ -146,7 +146,7 @@ const AsciiPortrait = () => {
     // 3. Fallback to image processing
     const img = new Image();
     img.crossOrigin = "Anonymous";
-    img.src = "/profile.png";
+    img.src = `${import.meta.env.BASE_URL}profile.png`;
     img.onload = () => {
       const raw = processImage(img, size);
       memoryCache[size] = raw;
