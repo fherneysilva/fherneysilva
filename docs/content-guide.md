@@ -61,6 +61,8 @@ Cambiar un color en cualquiera de los dos bloques lo propaga a todo el sitio (to
 
 **Siscodex tiene su propio acento**, independiente del acento general del portafolio (para señalar que es una marca aparte): `--siscodex-accent` (emerald, `#10b981` oscuro / `#047a4f` claro), definido dentro de `.siscodex-card` en `Siscodex.css`. El brillo reflectivo del link "Siscodex" en el NavBar (`SiscodexNavLabel.css`) usa ese mismo verde pero con su propio gradiente hardcodeado (no una `var()`) — si cambias el emerald de Siscodex, actualiza también los tonos del gradiente ahí para que combinen.
 
+Dentro de esa misma tarjeta hay dos excepciones intencionales que usan `--green-bright` (el ámbar del portafolio) en vez del emerald: `.siscodex-visit-link` (el link del header a siscodex.com) y `.siscodex-service-icon` (los 4 íconos de "Por qué Siscodex") — representan el respaldo personal de Fherney, no la marca de la empresa. Si cambias el ámbar del portafolio, estos dos puntos se actualizan solos (usan la variable); si quieres que dejen de combinar con el resto de la tarjeta, es ahí donde hay que tocar.
+
 La tabla de colores también está documentada (para referencia visual, solo el tema oscuro) en el `README.md` público.
 
 ## 6. Buenas prácticas al editar contenido

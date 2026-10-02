@@ -13,9 +13,9 @@ const content = {
       name: "fherney",
       nameSuffix: " here.",
       tagline: "Building technology that scales.",
-      role: "Senior Software Engineer & Technical Lead.",
+      role: "Senior Software Engineer, Tech Lead & CEO of Siscodex.",
       desc:
-        "I build cloud infrastructure by day and work on personal software projects by night. Between architecture, code, and side projects, I always find time for the occasional video game. Every now and then, it all happens at once.",
+        "I build cloud infrastructure by day and lead my own software company by night. Between architecture, code, and personal projects, I always find time for the occasional video game. Every now and then, it all happens at once.",
       contact: "Contact me",
     },
     about: {
@@ -136,10 +136,11 @@ const content = {
     },
     siscodex: {
       sectionTitle: "/ my company",
-      badge: "Launching August 2026",
       heading: "Siscodex",
+      url: "https://www.siscodex.com",
+      visitButton: "Explore our solutions at siscodex.com",
       text: [
-        "I'm the founder and CEO of Siscodex, a technology company I lead alongside three co-founding partners, with a clear mission: helping organizations grow and evolve without technical limits. We lead the design and development of software solutions and cloud infrastructure that are solid, scalable, and built to meet the needs of constantly evolving businesses.",
+        "I'm the co-founder and CEO of Siscodex, a technology company I lead alongside a co-founding partner, with a clear mission: helping organizations grow and evolve without technical limits. We lead the design and development of software solutions and cloud infrastructure that are solid, scalable, and built to meet the needs of constantly evolving businesses.",
         "At Siscodex, we combine high-level engineering, modern architecture, and strategic vision to turn complex challenges into efficient, sustainable, high-impact technology solutions. We work as a strategic technology partner for our clients, supporting them from their current challenges to their next stage of growth.",
         "We build the technology that lets businesses grow today and stay ready for what's next.",
       ],
@@ -179,8 +180,6 @@ const content = {
       ],
       processLabel: "How we work",
       process: ["Discovery", "Planning", "Development", "Launch"],
-      ctaText: "Looking for a technology partner for your next project?",
-      ctaButton: "Let's talk",
     },
     blog: {
       sectionTitle: "/ blog",
@@ -210,9 +209,9 @@ const content = {
       name: "fherney",
       nameSuffix: " aquí.",
       tagline: "Construyendo tecnología que escala.",
-      role: "Senior Software Engineer y Tech Lead.",
+      role: "Senior Software Engineer, Tech Lead y CEO de Siscodex.",
       desc:
-        "Construyo infraestructura cloud de día y trabajo en proyectos de software personales de noche. Entre arquitectura, código y proyectos personales, siempre encuentro tiempo para algún videojuego. De vez en cuando, todo pasa al mismo tiempo.",
+        "Construyo infraestructura cloud de día y lidero mi propia empresa de software de noche. Entre arquitectura, código y proyectos personales, siempre encuentro tiempo para algún videojuego. De vez en cuando, todo pasa al mismo tiempo.",
       contact: "Contáctame",
     },
     about: {
@@ -333,10 +332,11 @@ const content = {
     },
     siscodex: {
       sectionTitle: "/ mi empresa",
-      badge: "Lanzamos agosto 2026",
       heading: "Siscodex",
+      url: "https://www.siscodex.com",
+      visitButton: "Explora nuestras soluciones en siscodex.com",
       text: [
-        "Soy fundador y CEO de Siscodex, una empresa de tecnología que lidero junto a tres socios cofundadores, con una misión clara: ayudar a las organizaciones a crecer y evolucionar sin límites técnicos. Lideramos el diseño y desarrollo de soluciones de software e infraestructura cloud sólidas, escalables y preparadas para responder a las necesidades de negocios en constante evolución.",
+        "Soy cofundador y CEO de Siscodex, una empresa de tecnología que lidero junto a un socio cofundador, con una misión clara: ayudar a las organizaciones a crecer y evolucionar sin límites técnicos. Lideramos el diseño y desarrollo de soluciones de software e infraestructura cloud sólidas, escalables y preparadas para responder a las necesidades de negocios en constante evolución.",
         "En Siscodex combinamos ingeniería de alto nivel, arquitectura moderna y visión estratégica para transformar desafíos complejos en soluciones tecnológicas eficientes, sostenibles y de alto impacto. Trabajamos como un aliado tecnológico estratégico para nuestros clientes, acompañándolos desde sus retos actuales hasta sus próximos desafíos de crecimiento.",
         "Construimos la tecnología que permite a las empresas crecer hoy y estar preparadas para lo que viene.",
       ],
@@ -376,8 +376,6 @@ const content = {
       ],
       processLabel: "Cómo trabajamos",
       process: ["Descubrimiento", "Planeación", "Desarrollo", "Lanzamiento"],
-      ctaText: "¿Buscas un aliado tecnológico para tu próximo proyecto?",
-      ctaButton: "Hablemos",
     },
     blog: {
       sectionTitle: "/ blog",

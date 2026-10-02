@@ -35,10 +35,14 @@ Los informes estándar (no el de tiempo real) tardan típicamente 24–48 horas 
 
 ## Evento de conversión: `contact_click`
 
-Además de la medición mejorada automática, se dispara un evento personalizado `contact_click` cada vez que un visitante hace clic en un enlace de contacto (`mailto:fherneysilva13@gmail.com`), con un parámetro `location` que identifica desde dónde se hizo clic: `intro` (botón "Contact me" del hero), `navbar` (ícono de sobre en la barra de navegación) o `siscodex` (botón "Let's talk"/"Hablemos" al cierre de la sección Siscodex).
+Además de la medición mejorada automática, se dispara un evento personalizado `contact_click` cada vez que un visitante hace clic en un enlace de contacto (`mailto:fherneysilva13@gmail.com`), con un parámetro `location` que identifica desde dónde se hizo clic: `intro` (botón "Contact me" del hero) o `navbar` (ícono de sobre en la barra de navegación).
 
-- **Implementación**: `src/utils/analytics.js` expone `trackEvent(name, params)`, un wrapper que llama a `window.gtag(...)` solo si existe (evita errores si un bloqueador de anuncios impide que cargue `gtag.js`). Se invoca desde el `onClick` de cada enlace de contacto en `Intro.jsx`, `NavBar.jsx` y `Siscodex.jsx`.
+- **Implementación**: `src/utils/analytics.js` expone `trackEvent(name, params)`, un wrapper que llama a `window.gtag(...)` solo si existe (evita errores si un bloqueador de anuncios impide que cargue `gtag.js`). Se invoca desde el `onClick` de cada enlace de contacto en `Intro.jsx` y `NavBar.jsx`.
 - **Dónde verlo en GA4**: Informes → Interacción → Eventos, o crear un objetivo/conversión a partir de `contact_click` en Configurar → Eventos si se quiere medirlo como conversión formal.
+
+## Evento `siscodex_visit_click`
+
+Se dispara cuando un visitante hace clic en el link "Explore our solutions at siscodex.com" del header de la tarjeta Siscodex (`Siscodex.jsx`), con `location: "siscodex_header"`. Es la única acción de contacto/conversión que ofrece esa sección — no tiene un `mailto:` propio, el contacto real vive en siscodex.com.
 
 ## Qué NO expone GA4 (por diseño y por ley)
 

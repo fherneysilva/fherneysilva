@@ -3,7 +3,7 @@ import "../styles/Siscodex.css";
 import FadeInSection from "./FadeInSection";
 import { useLanguage } from "../i18n/useLanguage";
 import { trackEvent } from "../utils/analytics";
-import { FiUsers, FiCloud, FiTrendingUp, FiAward, FiCode, FiServer, FiRefreshCw } from "react-icons/fi";
+import { FiUsers, FiCloud, FiTrendingUp, FiAward, FiCode, FiServer, FiRefreshCw, FiExternalLink, FiZap } from "react-icons/fi";
 
 const whyIcons = [FiUsers, FiCloud, FiTrendingUp, FiAward];
 const serviceIcons = [FiCode, FiServer, FiRefreshCw];
@@ -26,10 +26,17 @@ const Siscodex = () => {
               width="560"
               height="58"
             />
-            <span className="siscodex-badge">
-              <span className="siscodex-badge-dot" />
-              {t.siscodex.badge}
-            </span>
+            <a
+              className="siscodex-visit-link"
+              href={t.siscodex.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackEvent("siscodex_visit_click", { location: "siscodex_header" })}
+            >
+              <FiZap className="siscodex-visit-icon" size={14} />
+              {t.siscodex.visitButton}
+              <FiExternalLink size={13} />
+            </a>
           </div>
           {t.siscodex.text.map((paragraph, i) => (
             <p className="siscodex-text" key={i}>
@@ -83,16 +90,6 @@ const Siscodex = () => {
                 </React.Fragment>
               ))}
             </div>
-          </div>
-          <div className="siscodex-cta">
-            <p className="siscodex-cta-text">{t.siscodex.ctaText}</p>
-            <a
-              className="siscodex-cta-button"
-              href="mailto:fherneysilva13@gmail.com"
-              onClick={() => trackEvent("contact_click", { location: "siscodex" })}
-            >
-              {t.siscodex.ctaButton}
-            </a>
           </div>
         </div>
       </FadeInSection>
