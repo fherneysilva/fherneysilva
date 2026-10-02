@@ -32,15 +32,16 @@ Tarjeta única que enlaza al blog externo de Fherney (Hashnode, `target="_blank"
 
 ## Siscodex (`#siscodex`, `Siscodex.jsx`)
 
-Sección "mi empresa" — presenta Siscodex, la empresa de software que Fherney lidera como fundador y CEO junto a tres socios cofundadores. Estructura de la tarjeta, de arriba a abajo:
-- **Header**: logo de Siscodex + badge de lanzamiento ("Launching August 2026" / "Lanzamos agosto 2026").
+Sección "mi empresa" — presenta Siscodex, la empresa de software que Fherney lidera como cofundador y CEO junto a un socio cofundador. Mostrarla o no se controla con `SHOW_SISCODEX` en `src/siteConfig.js` (ver [`architecture.md`](architecture.md)). Estructura de la tarjeta, de arriba a abajo:
+- **Header**: logo de Siscodex + link directo "Explore our solutions at siscodex.com" / "Explora nuestras soluciones en siscodex.com" (abre `https://www.siscodex.com` en pestaña nueva, evento GA4 `siscodex_visit_click`). Ya no hay badge de lanzamiento — la empresa está en producción.
 - **Bio**: 2-3 párrafos de presentación (rol, misión, forma de trabajar como aliado tecnológico) — tono de empresa ya formada, no de startup buscando sus primeros clientes.
 - **Qué hacemos**: grid de 3 servicios (Software a Medida, Infraestructura Cloud, Modernización de Plataformas), cada uno con ícono y descripción corta.
 - **Por qué Siscodex**: grid de 4 diferenciadores (trato directo, escalabilidad, experiencia cloud, ingeniería senior).
 - **Cómo trabajamos**: track numerado de 4 pasos (Discovery → Planning → Development → Launch) — lenguaje deliberadamente no técnico/orientado a PM, sin revelar fechas ni estado real del roadmap interno.
-- **CTA de cierre**: invitación a contactar por correo (`mailto:`), sin link "Saber más" por tarjeta (no hay páginas de destino aún).
 
-El link "Siscodex" en el NavBar/SidebarNav usa un efecto de brillo reflectivo (`SiscodexNavLabel.jsx` + `SiscodexNavLabel.css`) en el verde esmeralda propio de la marca Siscodex (`--siscodex-accent`, distinto del ámbar del resto del portafolio), no plateado — para señalar que es un proyecto/marca aparte.
+No hay CTA de cierre ni `mailto:` dentro de la tarjeta — el contacto vive en siscodex.com (que tiene su propio formulario), así que el único call-to-action es el link del header.
+
+El link "Siscodex" en el NavBar/SidebarNav usa un efecto de brillo reflectivo (`SiscodexNavLabel.jsx` + `SiscodexNavLabel.css`) en el verde esmeralda propio de la marca Siscodex (`--siscodex-accent`, distinto del ámbar del resto del portafolio), no plateado — para señalar que es un proyecto/marca aparte. Dentro de la tarjeta, ese mismo ámbar del portafolio (`--green-bright`) reaparece en dos puntos deliberados — el link "Explore our solutions" del header y los íconos del grid "Por qué Siscodex" — como un guiño a que es el respaldo personal de Fherney, no la marca de la empresa; el resto de la tarjeta (servicios, roadmap) se queda en el verde de Siscodex. Ver [`content-guide.md`](content-guide.md#5-cambiar-la-paleta-de-colores) para el detalle de dónde vive cada color.
 
 ## Credits (`#credits`, `Credits.jsx`)
 
