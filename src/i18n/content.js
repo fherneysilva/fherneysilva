@@ -140,7 +140,7 @@ const content = {
       url: "https://www.siscodex.com",
       visitButton: "Explore our solutions at siscodex.com",
       text: [
-        "I'm the co-founder and CEO of Siscodex, a technology company I lead alongside a co-founding partner, with a clear mission: helping organizations grow and evolve without technical limits. We lead the design and development of software solutions and cloud infrastructure that are solid, scalable, and built to meet the needs of constantly evolving businesses.",
+        "I'm the co-founder and CEO of Siscodex, a technology company I lead alongside two co-founding partners, with a clear mission: helping organizations grow and evolve without technical limits. We lead the design and development of software solutions and cloud infrastructure that are solid, scalable, and built to meet the needs of constantly evolving businesses.",
         "At Siscodex, we combine high-level engineering, modern architecture, and strategic vision to turn complex challenges into efficient, sustainable, high-impact technology solutions. We work as a strategic technology partner for our clients, supporting them from their current challenges to their next stage of growth.",
         "We build the technology that lets businesses grow today and stay ready for what's next.",
       ],
@@ -336,7 +336,7 @@ const content = {
       url: "https://www.siscodex.com",
       visitButton: "Explora nuestras soluciones en siscodex.com",
       text: [
-        "Soy cofundador y CEO de Siscodex, una empresa de tecnología que lidero junto a un socio cofundador, con una misión clara: ayudar a las organizaciones a crecer y evolucionar sin límites técnicos. Lideramos el diseño y desarrollo de soluciones de software e infraestructura cloud sólidas, escalables y preparadas para responder a las necesidades de negocios en constante evolución.",
+        "Soy cofundador y CEO de Siscodex, una empresa de tecnología que lidero junto a dos socios cofundadores, con una misión clara: ayudar a las organizaciones a crecer y evolucionar sin límites técnicos. Lideramos el diseño y desarrollo de soluciones de software e infraestructura cloud sólidas, escalables y preparadas para responder a las necesidades de negocios en constante evolución.",
         "En Siscodex combinamos ingeniería de alto nivel, arquitectura moderna y visión estratégica para transformar desafíos complejos en soluciones tecnológicas eficientes, sostenibles y de alto impacto. Trabajamos como un aliado tecnológico estratégico para nuestros clientes, acompañándolos desde sus retos actuales hasta sus próximos desafíos de crecimiento.",
         "Construimos la tecnología que permite a las empresas crecer hoy y estar preparadas para lo que viene.",
       ],

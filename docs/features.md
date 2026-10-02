@@ -32,7 +32,7 @@ Tarjeta única que enlaza al blog externo de Fherney (Hashnode, `target="_blank"
 
 ## Siscodex (`#siscodex`, `Siscodex.jsx`)
 
-Sección "mi empresa" — presenta Siscodex, la empresa de software que Fherney lidera como cofundador y CEO junto a un socio cofundador. Mostrarla o no se controla con `SHOW_SISCODEX` en `src/siteConfig.js` (ver [`architecture.md`](architecture.md)). Estructura de la tarjeta, de arriba a abajo:
+Sección "mi empresa" — presenta Siscodex, la empresa de software que Fherney lidera como cofundador y CEO junto a dos socios cofundadores. Mostrarla o no se controla con `SHOW_SISCODEX` en `src/siteConfig.js` (ver [`architecture.md`](architecture.md)). Estructura de la tarjeta, de arriba a abajo:
 - **Header**: logo de Siscodex + link directo "Explore our solutions at siscodex.com" / "Explora nuestras soluciones en siscodex.com" (abre `https://www.siscodex.com` en pestaña nueva, evento GA4 `siscodex_visit_click`). Ya no hay badge de lanzamiento — la empresa está en producción.
 - **Bio**: 2-3 párrafos de presentación (rol, misión, forma de trabajar como aliado tecnológico) — tono de empresa ya formada, no de startup buscando sus primeros clientes.
 - **Qué hacemos**: grid de 3 servicios (Software a Medida, Infraestructura Cloud, Modernización de Plataformas), cada uno con ícono y descripción corta.
