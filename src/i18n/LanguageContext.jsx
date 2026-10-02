@@ -6,9 +6,9 @@ import { LanguageContext } from "./context";
 const STORAGE_KEY = "portfolio-lang";
 
 const getInitialLanguage = () => {
-  if (typeof window === "undefined") return "en";
+  if (typeof window === "undefined") return "es";
   const stored = window.localStorage.getItem(STORAGE_KEY);
-  return stored === "es" ? "es" : "en";
+  return stored === "en" ? "en" : "es";
 };
 
 export const LanguageProvider = ({ children }) => {

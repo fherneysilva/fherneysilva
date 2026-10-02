@@ -60,7 +60,7 @@ Implementado desde cero, sin librería externa (no `react-i18next` ni similar):
 - **`src/i18n/content.js`** — diccionario plano `{ en: {...}, es: {...} }` con toda la copy del sitio, organizada por sección (`nav`, `intro`, `about`, `experience`, `projects`, `siscodex`, `blog`, `credits`).
 - **`src/i18n/context.js`** + **`LanguageContext.jsx`** — `React.createContext` + `Provider` que expone `{ language, t, toggleLanguage }`. Envuelve `<App />` en `main.jsx`.
 - **`src/i18n/useLanguage.js`** — hook (`const { t } = useLanguage()`) que consume el context; los componentes leen textos como `t.about.leadIn`, nunca hardcodean strings visibles.
-- **Persistencia**: la elección de idioma se guarda en `localStorage` bajo la key `portfolio-lang` y se restaura al cargar.
+- **Persistencia**: español es el idioma por defecto; la elección se guarda en `localStorage` bajo la key `portfolio-lang` y se restaura al cargar. Un script inline en `index.html` aplica el `lang` guardado al `<html>` antes del primer render (mismo mecanismo que el tema, evita parpadeo).
 - El botón de idioma (`NavBar.jsx`, `.lang-toggle-btn`) llama a `toggleLanguage()`.
 
 Ver [`content-guide.md`](content-guide.md) para el flujo de edición de textos.
