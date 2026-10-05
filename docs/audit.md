@@ -1,15 +1,20 @@
 # Auditoría Lighthouse
 
-## Estado actual (última auditoría: 2026-08-04)
+## Estado actual (última re-auditoría: 2026-10-04)
 
-| Categoría        | Puntaje |
-| ---------------- | ------- |
-| SEO              | 100     |
-| Accesibilidad    | 100     |
-| Buenas prácticas | 100     |
-| Rendimiento      | 92      |
+| Categoría         | Puntaje     |
+| ----------------- | ----------- |
+| SEO                | 100         |
+| Accesibilidad      | 100         |
+| Buenas prácticas   | 100         |
+| Rendimiento        | 86–96       |
+| Agentic browsing   | 100         |
 
-Medido con `npx lighthouse <url> --form-factor=mobile --screenEmulation.mobile` (perfil mobile, que es más estricto que desktop — es el que se reporta acá).
+Medido con `npx lighthouse <url> --form-factor=mobile --screenEmulation.mobile` (perfil mobile, que es más estricto que desktop — es el que se reporta acá), contra producción (`https://www.fherneysilva.com/`).
+
+**Rendimiento**: se corrió 3 veces seguidas y salió 86, 94 y 96 — el score fluctúa con el estado de la red en el momento del test (afecta FCP/LCP, que son medidos, no simulados, al auditar una URL remota). No es una regresión: sigue en línea con el 92 documentado en la ronda de agosto; ver la sección de abajo para por qué no se persigue el 100 literal.
+
+**Agentic browsing**: categoría nueva de Lighthouse desde la última ronda (no existía en agosto) — valida que agentes/IA puedan "leer" el sitio correctamente (`robots.txt`, `llms.txt`, metadata, formularios). Salió 100 sin cambios adicionales.
 
 ## Qué se corrigió en esta ronda
 
