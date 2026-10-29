@@ -98,7 +98,7 @@ El efecto de partículas ASCII en la sección Intro (`AsciiPortrait.jsx`) **no**
 
 Como el sitio es una SPA de una sola página estática (sin SSR ni pre-renderizado), el SEO se apoya en lo que puede ir directamente en `index.html` y en `public/`:
 
-- **Meta tags** en `index.html`: `title`, `description`, `canonical`, Open Graph (`og:*`) y Twitter Card (`twitter:*`, `summary_large_image` con imagen — usa `public/assets/hi-fher.png` como preview al compartir el link).
+- **Meta tags** en `index.html`: `title`, `description`, `canonical`, Open Graph (`og:*`) y Twitter Card (`twitter:*`, `summary_large_image`), más `og:site_name`, `og:locale` (`es_CO`, alternativo `en_US`) y tamaño/alt de la imagen. La tarjeta de preview al compartir el link es `public/assets/og-image.png` (1200×630, generada con `generate_og.cjs`). Como los bots no ejecutan JS, la tarjeta es una sola para ambos idiomas (en español).
 - **Datos estructurados**: un bloque `<script type="application/ld+json">` con schema.org `Person` (nombre, `jobTitle`, `worksFor: Siscodex`, `sameAs` con GitHub/LinkedIn/blog) para que buscadores puedan mostrar un rich snippet.
 - **`public/sitemap.xml`**: un único `<url>` (la raíz `/`, ya que no hay rutas adicionales que indexar).
 - **`public/robots.txt`**: permite todo el crawling y referencia el sitemap.
