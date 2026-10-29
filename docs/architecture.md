@@ -36,6 +36,7 @@ No hay backend, base de datos, ni gestor de estado global (Redux/Zustand/etc.) �
 │   └── main.jsx                # Entry point, monta <App /> envuelto en <ThemeProvider> + <LanguageProvider>
 ├── extract_ascii.cjs          # Script Node/Playwright para regenerar asciiData.js
 ├── resize-photo.cjs           # Script Node/Playwright para comprimir/redimensionar fotos de contenido
+├── generate_og.cjs            # Script Node/Playwright para generar la tarjeta de preview (public/assets/og-image.png)
 ├── eslint.config.js
 ├── vite.config.js
 └── docs/                       # Esta documentación
@@ -90,7 +91,7 @@ El efecto de partículas ASCII en la sección Intro (`AsciiPortrait.jsx`) **no**
 
 **Glow en modo claro**: el retrato siempre se dibuja con partículas color ámbar sobre fondo oscuro — en modo oscuro ese fondo es la página misma; en modo claro, `AsciiPortrait.jsx` construye una vez (no en cada frame, por rendimiento) un canvas auxiliar fuera de pantalla, dibuja un círculo difuminado (`filter: blur(...)`) en la posición de reposo (`targetX`/`targetY`) de cada partícula, y lo pega detrás de las partículas en cada frame (`ctx.drawImage`). El resultado sigue la silueta real del retrato en vez de una forma geométrica genérica (círculo/óvalo) — eso ya se probó y se descartó por verse "tosco". Además, `.intro-simulation` recorta el canvas en mobile (`overflow: hidden` + `transform: scale(1.25)` en el canvas) para eliminar el margen vacío que trae la imagen fuente (procesada al 80% de escala).
 
-**Regenerar el retrato**: si cambia `public/profile.png`, hay que correr `node extract_ascii.cjs` de nuevo y commitear el `asciiData.js` resultante — no ocurre automáticamente en el build.
+**Regenerar el retrato**: si cambia `public/profile.png`, hay que correr `node extract_ascii.cjs` de nuevo y commitear el `asciiData.js` resultante — no ocurre automáticamente en el build. Como la tarjeta de preview para redes también dibuja el retrato desde `asciiData.js`, conviene correr después `node generate_og.cjs` para que no quede desactualizada.
 
 ## SEO
 
@@ -107,5 +108,5 @@ Como el sitio es una SPA de una sola página estática (sin SSR ni pre-renderiza
 ## Calidad de código
 
 - `npm run lint` corre ESLint con reglas de `eslint-plugin-react-hooks` (incluye la regla estricta `set-state-in-effect`) y `eslint-plugin-react-refresh`.
-- No hay test runner configurado (no Vitest/Jest/Playwright Test como framework de pruebas — Playwright solo se usa como herramienta puntual en `extract_ascii.cjs` y `resize-photo.cjs`).
+- No hay test runner configurado (no Vitest/Jest/Playwright Test como framework de pruebas — Playwright solo se usa como herramienta puntual en `extract_ascii.cjs`, `resize-photo.cjs` y `generate_og.cjs`).
 - Advertencia conocida y aceptada: `AsciiPortrait.jsx` dispara `react-hooks/set-state-in-effect` porque llama `setDataReady(true)` de forma síncrona dentro de un `useEffect`. No se corrige porque el fix implicaría reestructurar el timing de la animación (que depende de `performance.now()` capturado en ese mismo punto) y el riesgo de romper la animación ajustada a mano supera el beneficio de silenciar un lint no funcional.
