@@ -24,11 +24,11 @@ const content = {
         { text: "I am currently a " },
         { text: "Technical Lead", bold: true },
         { text: " at " },
-        { text: "Experian", highlight: true },
+        { text: "TEAM International", highlight: true },
         {
           text: ", where I lead the Cloud Foundation Team, building reusable AWS architecture. Previously, I was at ",
         },
-        { text: "BBVA", highlight: true },
+        { text: "Novatec Solutions", highlight: true },
         { text: "." },
       ],
       techIntro: "Here are some technologies I have been working with:",
@@ -39,10 +39,12 @@ const content = {
     },
     experience: {
       sectionTitle: "/ experience",
+      clientLabel: "Client",
       jobs: {
-        "Experian": {
+        "TEAM International": {
           jobTitle: "Technical Lead & Senior Software Engineer @",
           duration: "DEC 2023 - PRESENT",
+          client: "Experian",
           desc: [
             "Leading the Cloud Foundation Team, building reusable, certified architectural components (self-service products) aligned with the AWS Well-Architected Framework.",
             "Automating infrastructure provisioning with Terraform across Lambda, API Gateway, IAM, SQS, and SNS.",
@@ -52,9 +54,10 @@ const content = {
             "Worked on the migration of APIs from EKS to ECS Fargate, cutting costs and simplifying deployments with Route 53, ALB, and NLB.",
           ],
         },
-        BBVA: {
+        "Novatec Solutions": {
           jobTitle: "Development Engineer @",
           duration: "MAR 2022 - NOV 2023",
+          client: "BBVA",
           desc: [
             "Built front-end services (Java Spring) for the Electronic Promissory Note / Pre-approved Consumer Credit flow in BBVA Net, including new ASO service integrations and end-to-end testing with Postman/Atenea.",
             "Developed back-end and messaging services (Java Spring MVC) for the Acquiring Transfers project in Net Cash.",
@@ -220,11 +223,11 @@ const content = {
         { text: "Actualmente soy " },
         { text: "Technical Lead", bold: true },
         { text: " en " },
-        { text: "Experian", highlight: true },
+        { text: "TEAM International", highlight: true },
         {
           text: ", donde lidero el Cloud Foundation Team, construyendo arquitectura reutilizable en AWS. Antes trabajé en ",
         },
-        { text: "BBVA", highlight: true },
+        { text: "Novatec Solutions", highlight: true },
         { text: "." },
       ],
       techIntro: "Estas son algunas tecnologías con las que he trabajado:",
@@ -235,10 +238,12 @@ const content = {
     },
     experience: {
       sectionTitle: "/ experiencia",
+      clientLabel: "Cliente",
       jobs: {
-        "Experian": {
+        "TEAM International": {
           jobTitle: "Technical Lead y Senior Software Engineer @",
           duration: "DIC 2023 - ACTUALIDAD",
+          client: "Experian",
           desc: [
             "Lidero el Cloud Foundation Team, construyendo componentes arquitectónicos reutilizables y certificados (productos autoservicio) alineados al AWS Well-Architected Framework.",
             "Automatización de aprovisionamiento de infraestructura con Terraform en Lambda, API Gateway, IAM, SQS y SNS.",
@@ -248,9 +253,10 @@ const content = {
             "Participé en la migración de APIs de EKS a ECS Fargate, optimizando costos y simplificando despliegues con Route 53, ALB y NLB.",
           ],
         },
-        BBVA: {
+        "Novatec Solutions": {
           jobTitle: "Ingeniero de Desarrollo @",
           duration: "MAR 2022 - NOV 2023",
+          client: "BBVA",
           desc: [
             "Desarrollo Front-end (Java Spring) para el flujo de Pagaré Electrónico / Crédito de Consumo Preaprobados en BBVA Net, incluyendo integración de nuevos servicios ASO y pruebas integrales con Postman/Atenea.",
             "Desarrollo Backend/Mensajería (Java Spring MVC) para el proyecto Traslados de Adquirencia en Net Cash.",

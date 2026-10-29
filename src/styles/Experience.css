@@ -24,6 +24,19 @@
   color: var(--slate);
 }
 
+.joblist-client {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--slate);
+  margin-top: 4px;
+}
+
+.joblist-client-name {
+  color: var(--yellow);
+  font-weight: bold;
+}
+
 #vertical-tabpanel {
   margin-top: -28px;
   padding-left: 25px;
@@ -109,5 +122,9 @@ ul {
 
   .joblist-job-company {
     font-size: 22px;
+  }
+
+  .joblist-client {
+    font-size: 17px;
   }
 }
