@@ -2,7 +2,7 @@ Hey there! 👋
 
 I'm **[Fherney](https://www.fherneysilva.com)**, based in Colombia.
 
-I currently work as a Technical Lead at [Experian](https://github.com/experian), where I lead the Cloud Foundation Team — building reusable, AWS Well-Architected infrastructure with Terraform and Java/Spring Boot, and migrating legacy systems to modern cloud-native architecture. Previously, I worked on backend systems for [BBVA](https://github.com/bbva).
+I currently work as a Technical Lead at TEAM International for [Experian](https://github.com/experian), where I lead the Cloud Foundation Team — building reusable, AWS Well-Architected infrastructure with Terraform and Java/Spring Boot, and migrating legacy systems to modern cloud-native architecture. Previously, at Novatec Solutions, I worked on backend systems for [BBVA](https://github.com/bbva).
 
 Alongside that, I'm the co-founder and CEO of [Siscodex](https://www.siscodex.com), a technology company I lead together with two co-founding partners, building software and cloud infrastructure for businesses that need to scale.
 

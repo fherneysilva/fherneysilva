@@ -18,12 +18,12 @@ Foto de perfil real + biografía corta (2-4 frases) + objetivo profesional. Usa 
 
 ## Experience (`#experience`, `Experience.jsx` + `JobList.jsx`)
 
-Experiencia laboral en formato de tabs (uno por empleo): Datacrédito Experian (Technical Lead / Senior Software Engineer), BBVA, Professional Care, Freelance. Cada tab lista responsabilidades/logros en bullets.
+Experiencia laboral en formato de tabs (uno por empleo): TEAM International (Technical Lead / Senior Software Engineer, cliente Experian), Novatec Solutions (cliente BBVA), Professional Care, Freelance. Cada tab lista responsabilidades/logros en bullets; si el empleo tiene un campo `client`, se muestra una línea "Client: …" bajo el nombre de la empresa.
 
 ## Projects (`#projects`, `Projects.jsx`)
 
 Grid de tarjetas de proyectos, agrupadas en dos categorías (sin carrusel de imágenes — se eliminó el que traía la plantilla original):
-- **Cloud & Enterprise** — proyectos internos de Datacrédito Experian (sin repos públicos, se muestran como logros descriptivos).
+- **Cloud & Enterprise** — proyectos internos para Experian (sin repos públicos, se muestran como logros descriptivos).
 - **Freelance & Personal** — proyectos para clientes (Mind21, Bio Dx, Centro Odontológico Sonrilaser, etc.).
 
 ## Blog (`#blog`, `Blog.jsx`)

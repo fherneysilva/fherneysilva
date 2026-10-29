@@ -117,6 +117,11 @@ const JobList = () => {
               {experienceItems[key]["jobTitle"] + " "}
             </span>
             <span className="joblist-job-company">{key}</span>
+            {experienceItems[key]["client"] && (
+              <div className="joblist-client">
+                {t.experience.clientLabel}: <span className="joblist-client-name">{experienceItems[key]["client"]}</span>
+              </div>
+            )}
             <div className="joblist-duration">
               {experienceItems[key]["duration"]}
             </div>
