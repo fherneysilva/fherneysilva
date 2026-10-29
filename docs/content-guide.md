@@ -43,7 +43,8 @@ Si cambias la foto fuente del retrato animado:
 1. Reemplaza `public/profile.png` con la nueva imagen (cuadrada o casi-cuadrada da mejor resultado).
 2. Corre `node extract_ascii.cjs` desde la raíz del proyecto (requiere que Playwright y sus navegadores estén instalados: `npx playwright install chromium` si es la primera vez).
 3. Esto sobrescribe `src/assets/asciiData.js` — revísalo con `git diff` y commitéalo junto con el cambio de imagen.
-4. Verifica visualmente con `npm run dev` — el retrato es sensible a fotos con fondos muy claros/oscuros o mucho contraste; si se ve "vacío" en zonas (cabello, torso), puede ayudar ajustar el `scale`/umbral de alpha en `extract_ascii.cjs` (mismo algoritmo que usa `AsciiPortrait.jsx` como fallback, deben mantenerse en sync).
+4. Corre `node generate_og.cjs` para regenerar la tarjeta de preview para redes (`public/assets/og-image.png`), que usa el mismo retrato.
+5. Verifica visualmente con `npm run dev` — el retrato es sensible a fotos con fondos muy claros/oscuros o mucho contraste; si se ve "vacío" en zonas (cabello, torso), puede ayudar ajustar el `scale`/umbral de alpha en `extract_ascii.cjs` (mismo algoritmo que usa `AsciiPortrait.jsx` como fallback, deben mantenerse en sync).
 
 ## 5. Cambiar la paleta de colores
 
@@ -57,6 +58,7 @@ El sitio tiene **dos** paletas: oscura (default) y clara. Ambas viven en `src/st
 Cambiar un color en cualquiera de los dos bloques lo propaga a todo el sitio (todo el CSS de componentes usa `var(--nombre)`, no colores hardcodeados). **Si tocas el acento (`--green-bright`/`--green-rgb`) o el fondo (`--navy`/`--dark-navy`)**, revisa también:
 
 - `AsciiPortrait.jsx` — el color de las partículas (`ACCENT_RGB`) y el color del glow en modo claro (`GLOW_COLOR`) están hardcodeados en JS (un canvas no puede leer variables CSS directamente) y hay que actualizarlos a mano para que combinen. Hay un comentario en el código señalando este acoplamiento.
+- `generate_og.cjs` — la tarjeta de preview para redes tiene los colores del tema oscuro hardcodeados en su HTML; si cambias la paleta, actualízalos ahí y vuelve a correr `node generate_og.cjs`.
 - `NavBar.css` / `BackToTop.css` — usan `rgba(var(--green-rgb), alpha)` para los tintes translúcidos; si cambias el acento, `--green-rgb` debe quedar en sync con `--green-bright` (mismo color, formato "r, g, b" sin `rgba()`).
 
 **Siscodex tiene su propio acento**, independiente del acento general del portafolio (para señalar que es una marca aparte): `--siscodex-accent` (emerald, `#10b981` oscuro / `#047a4f` claro), definido dentro de `.siscodex-card` en `Siscodex.css`. El brillo reflectivo del link "Siscodex" en el NavBar (`SiscodexNavLabel.css`) usa ese mismo verde pero con su propio gradiente hardcodeado (no una `var()`) — si cambias el emerald de Siscodex, actualiza también los tonos del gradiente ahí para que combinen.

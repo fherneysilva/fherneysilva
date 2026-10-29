@@ -8,7 +8,7 @@ Este directorio contiene la documentación técnica y funcional del proyecto `fh
 | --- | --- |
 | [`architecture.md`](architecture.md) | Stack técnico, estructura de carpetas, routing, sistema de i18n, sistema de tema claro/oscuro, pipeline del retrato ASCII, estilos y herramientas de calidad. |
 | [`features.md`](features.md) | Qué hace cada sección del sitio, de arriba a abajo, en términos funcionales (no de código). |
-| [`content-guide.md`](content-guide.md) | Cómo actualizar experiencia, proyectos, textos EN/ES, fotos, el retrato ASCII y la paleta de colores sin tocar lógica de componentes. |
+| [`content-guide.md`](content-guide.md) | Cómo actualizar experiencia, proyectos, textos EN/ES, fotos, el retrato ASCII, la tarjeta de preview para redes y la paleta de colores sin tocar lógica de componentes. |
 | [`deployment.md`](deployment.md) | Cómo se publica el sitio hoy (GitHub Actions + dominio propio) — estado real, no aspiracional. |
 | [`analytics.md`](analytics.md) | Cómo está configurado Google Analytics y cómo ver las métricas de tráfico. |
 | [`audit.md`](audit.md) | Resultados de la auditoría Lighthouse (SEO, accesibilidad, buenas prácticas, rendimiento), qué se corrigió y cómo volver a auditar. |
