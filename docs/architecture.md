@@ -21,6 +21,7 @@ No hay backend, base de datos, ni gestor de estado global (Redux/Zustand/etc.) �
 ```
 ├── public/                  # Assets servidos tal cual (sin procesar por Vite)
 │   ├── assets/               # Fotos de perfil, logo de Siscodex
+│   ├── 404.html               # Página de error, HTML plano — GitHub Pages la sirve sola
 │   ├── favicon.svg
 │   └── profile.png           # Imagen fuente para el retrato ASCII
 ├── src/
@@ -89,9 +90,9 @@ El efecto de partículas ASCII en la sección Intro (`AsciiPortrait.jsx`) **no**
 3. En producción, `AsciiPortrait.jsx` simplemente lee `asciiData[size]` (sin Playwright, sin procesamiento de imagen) y anima las partículas con `requestAnimationFrame` + interacción de mouse/touch.
 4. Si `asciiData[size]` no existe para el tamaño actual (fallback improbable), el componente procesa `public/profile.png` en el propio navegador del visitante como respaldo.
 
-**Glow en modo claro**: el retrato siempre se dibuja con partículas color ámbar sobre fondo oscuro — en modo oscuro ese fondo es la página misma; en modo claro, `AsciiPortrait.jsx` construye una vez (no en cada frame, por rendimiento) un canvas auxiliar fuera de pantalla, dibuja un círculo difuminado (`filter: blur(...)`) en la posición de reposo (`targetX`/`targetY`) de cada partícula, y lo pega detrás de las partículas en cada frame (`ctx.drawImage`). El resultado sigue la silueta real del retrato en vez de una forma geométrica genérica (círculo/óvalo) — eso ya se probó y se descartó por verse "tosco". Además, `.intro-simulation` recorta el canvas en mobile (`overflow: hidden` + `transform: scale(1.25)` en el canvas) para eliminar el margen vacío que trae la imagen fuente (procesada al 80% de escala).
+**Glow en modo claro**: el retrato siempre se dibuja con partículas color ámbar sobre fondo oscuro — en modo oscuro ese fondo es la página misma; en modo claro, `AsciiPortrait.jsx` construye una vez (no en cada frame, por rendimiento) un canvas auxiliar fuera de pantalla y dibuja, en la posición de reposo (`targetX`/`targetY`) de cada partícula, dos pasadas de círculos sólidos (uno ancho y tenue + uno chico y opaco) que simulan un halo difuminado, pegado detrás de las partículas en cada frame (`ctx.drawImage`). **Deliberadamente no usa `ctx.filter` (blur)** — esa API tiene soporte inconsistente en canvases desprendidos del DOM en combinaciones de GPU/navegador móvil (se confirmó ausente en Chrome para Android en un Galaxy Tab S7+: el glow completo no se dibujaba, dejando solo partículas de baja opacidad casi invisibles sobre el fondo claro). El resultado sigue la silueta real del retrato en vez de una forma geométrica genérica (círculo/óvalo) — eso ya se probó y se descartó por verse "tosco". Además, `.intro-simulation` recorta el canvas en mobile (`overflow: hidden` + `transform: scale(1.25)` en el canvas) para eliminar el margen vacío que trae la imagen fuente (procesada al 80% de escala).
 
-**Regenerar el retrato**: si cambia `public/profile.png`, hay que correr `node extract_ascii.cjs` de nuevo y commitear el `asciiData.js` resultante — no ocurre automáticamente en el build. Como la tarjeta de preview para redes también dibuja el retrato desde `asciiData.js`, conviene correr después `node generate_og.cjs` para que no quede desactualizada.
+**Regenerar el retrato**: si cambia `public/profile.png`, hay que correr `node extract_ascii.cjs` de nuevo y commitear el `asciiData.js` resultante — no ocurre automáticamente en el build. Dos cosas más dependen de esos datos y no se sincronizan solas: la tarjeta de preview para redes (correr `node generate_og.cjs` después) y `public/404.html`, que tiene una copia estática e inline de `asciiData['250']` (no la importa, porque es HTML plano sin bundler) para dibujar el retrato ASCII sin animación en la página de error — si no se actualiza a mano, el 404 se queda mostrando la foto vieja.
 
 ## SEO
 
