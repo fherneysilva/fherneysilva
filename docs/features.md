@@ -55,7 +55,7 @@ Cierre del sitio: "Built and designed by Fherney Silva" (y su equivalente en esp
 
 ## Página 404 (`public/404.html`)
 
-HTML/CSS/JS vanilla, sin React ni dependencia del bundle de la app — GitHub Pages la sirve automáticamente para cualquier URL que no exista en el sitio (comportamiento nativo de GitHub Pages, no necesita configuración extra). No es una página genérica: tiene el nombre y las fuentes del sitio (NTR/Libre Baskerville), un mensaje con tono propio, un retrato ASCII **estático** (mismo efecto visual del Intro, sin animación ni mouse-tracking, dibujado una sola vez), links de contacto (Email/GitHub/LinkedIn) y un botón de vuelta al inicio. Ver [`architecture.md`](architecture.md#pipeline-del-retrato-ascii) para la trampa de mantenimiento del retrato.
+HTML/CSS/JS vanilla, sin React ni dependencia del bundle de la app — GitHub Pages la sirve automáticamente para cualquier URL que no exista en el sitio (comportamiento nativo de GitHub Pages, no necesita configuración extra). No es una página genérica: usa las fuentes del sitio (NTR/Libre Baskerville), un mensaje con tono propio, un retrato ASCII **estático** (mismo efecto visual del Intro, sin animación ni mouse-tracking, dibujado una sola vez), links de contacto (Email/GitHub/LinkedIn) y un botón de vuelta al inicio. No tiene header con el nombre/logo — se quitó por redundante, ya que el botón de vuelta al inicio cumple esa función; el nombre solo queda en el `<title>` de la pestaña. Ver [`architecture.md`](architecture.md#pipeline-del-retrato-ascii) para la trampa de mantenimiento del retrato.
 
 ## Comportamiento transversal
 
