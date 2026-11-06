@@ -75,18 +75,33 @@
 
 @media only screen and (max-width: 600px) {
   .cookie-banner {
-    padding: 14px 16px;
+    padding: 16px 20px;
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+  }
+
+  .cookie-banner-text {
+    flex: none;
   }
 
   .cookie-banner-actions {
-    justify-content: stretch;
+    gap: 20px;
   }
 
-  .cookie-banner-decline,
+  /* Decline drops its box on mobile and becomes a plain text link — two
+     equal-weight buttons stacked under three lines of text felt heavy;
+     a single solid "Aceptar" plus a quiet "Rechazar" reads lighter. */
+  .cookie-banner-decline {
+    background: none;
+    border: none;
+    padding: 9px 4px;
+    text-decoration: underline;
+  }
+
   .cookie-banner-accept {
-    flex: 1;
+    padding: 10px 32px;
   }
 }
 
