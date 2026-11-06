@@ -83,16 +83,9 @@
         document.documentElement.setAttribute('lang', storedLang === 'en' ? 'en' : 'es');
       })();
     </script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-14P57CY0XJ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-      gtag('config', 'G-14P57CY0XJ');
-    </script>
+    <!-- Google Analytics (gtag.js) is NOT loaded here on purpose — it only
+         loads after the visitor accepts the cookie banner, via
+         loadAnalytics() in src/utils/analytics.js. See CookieBanner.jsx. -->
   </head>
   <body>
     <div id="root"></div>

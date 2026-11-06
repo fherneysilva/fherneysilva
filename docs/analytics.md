@@ -2,18 +2,27 @@
 
 ## Estado actual
 
-El sitio usa **Google Analytics 4** para medir tráfico. La implementación es el snippet estándar de `gtag.js`, cargado directamente en `index.html` (sin paquete npm, sin wrapper de React):
+El sitio usa **Google Analytics 4** para medir tráfico, **con consentimiento previo**: `gtag.js` ya no se carga automáticamente en `index.html` — solo se inyecta si el visitante acepta el banner de cookies (`CookieBanner.jsx`). Si rechaza, o simplemente no decide, no sale ni un solo request a `googletagmanager.com`.
 
-```html
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-14P57CY0XJ"></script>
-<script>
+```js
+// src/utils/analytics.js
+export const loadAnalytics = () => {
+  if (analyticsLoaded) return;
+  analyticsLoaded = true;
   window.dataLayer = window.dataLayer || [];
-  function gtag() { dataLayer.push(arguments); }
+  function gtag() { window.dataLayer.push(arguments); }
+  window.gtag = gtag;
   gtag("js", new Date());
-  gtag("config", "G-14P57CY0XJ");
-</script>
+  gtag("config", GA_MEASUREMENT_ID);
+
+  const script = document.createElement("script");
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+  document.head.appendChild(script);
+};
 ```
+
+`loadAnalytics()` se llama desde dos lugares en `CookieBanner.jsx`: al hacer clic en "Aceptar", y en un `useEffect` al montar si ya había un consentimiento `"accepted"` guardado de una visita anterior (para no mostrar el banner de nuevo ni perder el tracking en visitas recurrentes). Ver [`content-guide.md`](content-guide.md) si hay que editar los textos del banner, y [`features.md`](features.md#banner-de-cookies-y-legales-cookiebannerjsx-legalmodaljsx) para el flujo completo.
 
 - **Cuenta de Google Analytics**: "Fherney Silva".
 - **Propiedad**: "Portafolio Fherney Silva".
@@ -54,8 +63,11 @@ Solo da estadísticas agregadas/anónimas — número de visitas, ubicación apr
 
 ## Si hay que cambiar el ID (ej. se crea una propiedad nueva)
 
-Actualizar el string `G-14P57CY0XJ` en **ambos** lugares donde aparece en `index.html` (la URL del `<script src="...">` y el `gtag("config", ...)`) — son el mismo ID repetido dos veces, no dos IDs distintos.
+Actualizar la constante `GA_MEASUREMENT_ID` en `src/utils/analytics.js` — es el único lugar donde vive el ID ahora (ya no está hardcodeado en `index.html`).
 
-## Pendiente / no implementado
+## Banner de cookies y consentimiento
 
-- No hay banner de consentimiento de cookies. Para una audiencia mayormente colombiana esto no es legalmente obligatorio hoy, pero si el sitio empieza a recibir tráfico relevante de la Unión Europea, valdría la pena revisar un aviso de cookies (GDPR).
+- **Componente**: `CookieBanner.jsx` + `CookieBanner.css`, montado globalmente en `App.jsx`. Aparece fijo abajo en la primera visita (sin decisión guardada); desaparece al aceptar o rechazar.
+- **Persistencia**: `localStorage` bajo la key `cookie-consent`, valores `"accepted"` / `"rejected"`. Para volver a ver el banner en desarrollo, borrar esa key (o todo el `localStorage`) desde DevTools.
+- **Rechazar es real**: no es solo cosmético — si el visitante rechaza (o cierra sin decidir y nunca vuelve a aceptar), `gtag.js` nunca se descarga, así que no hay absolutamente ningún tracking.
+- **Link "Política de privacidad" dentro del banner** abre el mismo `LegalModal.jsx` que usan los links del footer.

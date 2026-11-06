@@ -1,8 +1,10 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useState } from "react";
 import Intro from "./components/Intro";
 import NavBar from "./components/NavBar";
 import SidebarNav from "./components/SidebarNav";
 import BackToTop from "./components/BackToTop";
+import CookieBanner from "./components/CookieBanner";
+import LegalModal from "./components/LegalModal";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import "./App.css";
@@ -18,6 +20,7 @@ const Credits = lazy(() => import("./components/Credits"));
 
 function App() {
   const { pathname } = useLocation();
+  const [legalDoc, setLegalDoc] = useState(null);
 
   useEffect(() => {
     const hash = window.location.hash;
@@ -65,13 +68,15 @@ function App() {
                   <Projects />
                   <Blog />
                   {SHOW_SISCODEX && <Siscodex />}
-                  <Credits />
+                  <Credits onOpenPrivacy={() => setLegalDoc("privacy")} onOpenTerms={() => setLegalDoc("terms")} />
                 </Suspense>
               </>
             }
           />
         </Routes>
       </main>
+      <CookieBanner onOpenPrivacy={() => setLegalDoc("privacy")} />
+      <LegalModal doc={legalDoc} onClose={() => setLegalDoc(null)} />
     </div>
   );
 }

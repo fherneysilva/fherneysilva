@@ -45,7 +45,17 @@ El link "Siscodex" en el NavBar/SidebarNav usa un efecto de brillo reflectivo (`
 
 ## Credits (`#credits`, `Credits.jsx`)
 
-Cierre del sitio: "Built and designed by Fherney Silva" (y su equivalente en español), sin atribución a plantillas de terceros.
+Cierre del sitio: "Built and designed by Fherney Silva" (y su equivalente en español), sin atribución a plantillas de terceros. Debajo, dos links — "Política de privacidad" / "Términos y condiciones" — que abren `LegalModal.jsx` (mismo modal que usa el link del banner de cookies, con el documento correspondiente).
+
+## Banner de cookies y legales (`CookieBanner.jsx`, `LegalModal.jsx`)
+
+- **CookieBanner** — barra fija abajo, visible solo en la primera visita (sin decisión guardada en `localStorage` bajo `cookie-consent`). Botones "Aceptar"/"Rechazar" + un link "Política de privacidad". Aceptar carga Google Analytics (ver [`analytics.md`](analytics.md#banner-de-cookies-y-consentimiento)) y oculta el banner; rechazar solo oculta el banner, sin cargar nada. Mientras está visible, agrega la clase `cookie-banner-open` al `<body>` para empujar el footer hacia arriba (si no, el banner tapa los links de Credits y los deja sin poder hacer clic).
+- **LegalModal** — modal genérico (prop `doc`: `"privacy"` | `"terms"` | `null`), usa `Dialog` de MUI por el focus-trap y soporte de teclado (Escape, foco atrapado) que trae gratis — no hay `ThemeProvider` de MUI en el sitio, así que sus colores se sobreescriben a mano en `LegalModal.css` para que combine con el tema claro/oscuro del resto del sitio. El estado de qué modal está abierto (`legalDoc`) vive en `App.jsx` y se pasa como callbacks a `CookieBanner` y `Credits`.
+- Textos de ambos en `t.cookieBanner` / `t.legal` de `content.js` — ver [`content-guide.md`](content-guide.md) para editarlos.
+
+## Página 404 (`public/404.html`)
+
+HTML/CSS/JS vanilla, sin React ni dependencia del bundle de la app — GitHub Pages la sirve automáticamente para cualquier URL que no exista en el sitio (comportamiento nativo de GitHub Pages, no necesita configuración extra). No es una página genérica: tiene el nombre y las fuentes del sitio (NTR/Libre Baskerville), un mensaje con tono propio, un retrato ASCII **estático** (mismo efecto visual del Intro, sin animación ni mouse-tracking, dibujado una sola vez), links de contacto (Email/GitHub/LinkedIn) y un botón de vuelta al inicio. Ver [`architecture.md`](architecture.md#pipeline-del-retrato-ascii) para la trampa de mantenimiento del retrato.
 
 ## Comportamiento transversal
 
@@ -53,4 +63,4 @@ Cierre del sitio: "Built and designed by Fherney Silva" (y su equivalente en esp
 - **Selector de idioma** — el botón "EN"/"ES" en el NavBar cambia todo el texto narrativo del sitio (ver [`architecture.md`](architecture.md#sistema-de-i18n)); la elección persiste entre visitas.
 - **Selector de tema** — el botón sol/luna en el NavBar cambia entre modo oscuro (default) y claro (ver [`architecture.md`](architecture.md#sistema-de-tema-claro-oscuro)); la elección también persiste entre visitas.
 - **Responsive** — el sitio fue auditado en el rango 320px–1920px sin overflow horizontal ni elementos rotos; el SidebarNav y el layout de Projects son los puntos que más cambian entre mobile y desktop.
-- **Analítica** — Google Analytics 4 mide visitas, origen del tráfico e interacción en todo el sitio (ver [`analytics.md`](analytics.md)); no depende de ninguna sección en particular.
+- **Analítica** — Google Analytics 4 mide visitas, origen del tráfico e interacción en todo el sitio, solo tras consentimiento explícito (ver [`analytics.md`](analytics.md)); no depende de ninguna sección en particular.

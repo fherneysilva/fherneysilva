@@ -17,9 +17,13 @@ Estructura por sección (mismas claves en `en` y `es`):
   projects: { ... },    // grupos de proyectos y sus tarjetas
   siscodex: { ... },    // texto de la sección "mi empresa"
   blog: { ... },        // eyebrow, texto, tags, cta
-  credits: { ... },     // frase de cierre
+  credits: { ... },     // frase de cierre + labels de los links de privacidad/términos
+  cookieBanner: { ... }, // texto del banner de cookies (CookieBanner.jsx)
+  legal: { ... },        // título + párrafos de Política de privacidad y Términos (LegalModal.jsx)
 }
 ```
+
+**Política de privacidad y Términos** (`legal.privacyBody` / `legal.termsBody`) son arreglos de strings, uno por párrafo — se renderizan como `<p>` independientes en `LegalModal.jsx`, no como un solo bloque de texto. Actualiza también `legal.privacyUpdated` / `legal.termsUpdated` ("Última actualización: ...") si cambias el contenido.
 
 **No hace falta tocar ningún componente `.jsx`** para cambiar texto — todos leen del hook `useLanguage()` (`const { t } = useLanguage()`) y renderizan `t.seccion.clave`. Si agregas una clave nueva, agrégala en **ambos** idiomas o el componente que la use quedará `undefined` en uno de los dos.
 

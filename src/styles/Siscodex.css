@@ -23,6 +23,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  flex-wrap: wrap;
   gap: 18px;
   margin-bottom: 16px;
 }
@@ -273,10 +274,6 @@
 
   .siscodex-card {
     padding: 1.75rem;
-  }
-
-  .siscodex-card-header {
-    flex-wrap: wrap;
   }
 
   .siscodex-visit-link {
