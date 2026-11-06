@@ -14,7 +14,21 @@ export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(getInitialTheme);
 
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
+    // Many components transition background-color/border-color on hover
+    // (e.g. .projects-card), and that same transition fires when the
+    // underlying CSS variable changes on a theme switch, making every card
+    // crossfade instead of flipping instantly. Briefly disable all
+    // transitions site-wide so the theme change itself is instant, then
+    // re-enable them (after a repaint) so hover/etc. stay smooth.
+    const root = document.documentElement;
+    root.classList.add("theme-transition-off");
+    root.setAttribute("data-theme", theme);
+    const id = requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        root.classList.remove("theme-transition-off");
+      });
+    });
+    return () => cancelAnimationFrame(id);
   }, [theme]);
 
   const toggleTheme = useCallback(() => {
