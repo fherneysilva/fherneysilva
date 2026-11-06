@@ -31,3 +31,12 @@
   --green-tint: rgba(168, 103, 31, 0.08);
   --yellow: #9c7a1a;
 }
+
+/* Set on <html> for one frame during a theme switch (ThemeContext.jsx) so
+   every color-related transition in the site (card hovers, buttons, etc.)
+   is skipped for that change — otherwise each one crossfades on its own
+   timing and the switch feels slow/inconsistent instead of instant. */
+.theme-transition-off,
+.theme-transition-off * {
+  transition: none !important;
+}
