@@ -44,6 +44,10 @@ Comprado en Squarespace Domains (2 años, con auto-renovación) y conectado:
 
 `fherneysilva.github.io` sigue existiendo como URL alternativa del mismo despliegue.
 
+## Página 404
+
+`public/404.html` — no pasa por React ni por el router de la SPA (HTML/CSS/JS vanilla, standalone). GitHub Pages lo detecta y sirve automáticamente (con status 404 real) para cualquier URL bajo el dominio que no exista, sin configuración adicional — es comportamiento nativo de GitHub Pages, funciona igual con dominio propio o con la URL de respaldo `fherneysilva.github.io`. Ver [`architecture.md`](architecture.md#estructura-de-carpetas) para el detalle de por qué incluye un retrato ASCII estático y la trampa de mantenimiento que eso implica.
+
 ## Compatibilidad con hosting en subcarpeta (fallback de github.io)
 
 El repo hoy se llama `fherneysilva.github.io` (convención especial de GitHub que sirve el sitio en la raíz de `usuario.github.io`). Si en algún momento se renombra a otra cosa (ej. `fherneysilva`, para que GitHub muestre su `README.md` en el perfil — ver [`content-guide.md`](content-guide.md) si aplica), la URL *default* de Pages para ese repo pasa a ser `usuario.github.io/nombre-repo/` (con subcarpeta) en vez de la raíz. El dominio propio (`www.fherneysilva.com`) sigue funcionando igual en cualquiera de los dos casos — esta sección es sobre esa URL alternativa de respaldo.

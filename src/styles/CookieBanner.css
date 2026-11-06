@@ -1,0 +1,105 @@
+.cookie-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 24px;
+  background: var(--light-navy);
+  border-top: 1px solid var(--lightest-navy);
+  box-shadow: 0 -4px 16px rgba(14, 14, 17, 0.35);
+}
+
+.cookie-banner-text {
+  flex: 1 1 320px;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--slate);
+}
+
+.cookie-banner-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-weight: bold;
+  color: var(--green-bright);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.cookie-banner-actions {
+  display: flex;
+  flex-shrink: 0;
+  gap: 10px;
+}
+
+.cookie-banner-decline,
+.cookie-banner-accept {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 9px 18px;
+  cursor: pointer;
+  transition: opacity 0.2s ease, background-color 0.2s ease;
+}
+
+.cookie-banner-decline {
+  background: transparent;
+  border: 1px solid var(--lightest-navy);
+  color: var(--slate);
+}
+
+.cookie-banner-decline:hover {
+  border-color: var(--slate);
+  color: var(--lightest-slate);
+}
+
+.cookie-banner-accept {
+  background: var(--green-bright);
+  border: 1px solid var(--green-bright);
+  color: var(--navy);
+}
+
+.cookie-banner-accept:hover {
+  opacity: 0.85;
+}
+
+@media only screen and (max-width: 600px) {
+  .cookie-banner {
+    padding: 14px 16px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cookie-banner-actions {
+    justify-content: stretch;
+  }
+
+  .cookie-banner-decline,
+  .cookie-banner-accept {
+    flex: 1;
+  }
+}
+
+/* Pushes the footer above the fixed banner so its links (incl. the
+   privacy/terms links the banner itself points to) stay clickable while
+   the banner is open. The banner can wrap to ~2 rows on narrow screens, so
+   this gets extra room below 600px. */
+body.cookie-banner-open #credits {
+  padding-bottom: 110px;
+}
+
+@media only screen and (max-width: 600px) {
+  body.cookie-banner-open #credits {
+    padding-bottom: 170px;
+  }
+}

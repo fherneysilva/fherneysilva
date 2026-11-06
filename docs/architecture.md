@@ -12,7 +12,7 @@
 | Animación de texto | `react-type-animation` |
 | Lint | ESLint 9 (config plana, `eslint.config.js`) |
 | Generación del retrato ASCII | Playwright (solo como herramienta de build offline, no en runtime) |
-| Analítica | Google Analytics 4 (`gtag.js`, cargado inline en `index.html`, sin paquete npm) |
+| Analítica | Google Analytics 4 (`gtag.js`, inyectado dinámicamente desde `src/utils/analytics.js` solo tras consentimiento — ver [`analytics.md`](analytics.md)) |
 
 No hay backend, base de datos, ni gestor de estado global (Redux/Zustand/etc.) — todo el estado vive en componentes React (`useState`) o en el Context de idioma.
 
@@ -52,7 +52,7 @@ No se usan CSS Modules ni styled-components: cada componente importa su propio `
 Intro → About → Experience → Projects → Blog → Siscodex → Credits
 ```
 
-`NavBar`, `SidebarNav` y `BackToTop` se montan fuera del `<Routes>`, como navegación persistente. No hay rutas adicionales (`/art`, `/hardware/:id`, etc. — esas existieron en versiones anteriores del proyecto y fueron eliminadas junto con sus componentes).
+`NavBar`, `SidebarNav`, `BackToTop`, `CookieBanner` y `LegalModal` se montan fuera del `<Routes>`, como navegación/UI persistente (ver [`features.md`](features.md#banner-de-cookies-y-legales-cookiebannerjsx-legalmodaljsx) para el banner y los modales). No hay rutas adicionales (`/art`, `/hardware/:id`, etc. — esas existieron en versiones anteriores del proyecto y fueron eliminadas junto con sus componentes). `public/404.html` es la excepción: no pasa por React Router en absoluto, es un archivo estático que GitHub Pages sirve directamente (ver [`deployment.md`](deployment.md#página-404)).
 
 ## Sistema de i18n
 

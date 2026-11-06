@@ -1,0 +1,62 @@
+/* The site doesn't use an MUI ThemeProvider, so Dialog renders with MUI's
+   default light paper — override it to match the site's own dark/light
+   theme variables instead of hardcoding MUI's palette. */
+.legal-modal .MuiPaper-root {
+  background-color: var(--light-navy);
+  color: var(--lightest-slate);
+  border: 1px solid var(--lightest-navy);
+  border-radius: 12px;
+}
+
+.legal-modal-title {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  font-weight: bold !important;
+  color: var(--lightest-slate) !important;
+}
+
+.legal-modal-content.MuiDialogContent-root {
+  border-color: var(--lightest-navy) !important;
+}
+
+.legal-modal-updated {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--green-bright);
+  margin: 0 0 16px;
+}
+
+.legal-modal-paragraph {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--slate);
+  margin: 0 0 14px;
+}
+
+.legal-modal-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.legal-modal-actions.MuiDialogActions-root {
+  padding: 14px 20px !important;
+}
+
+.legal-modal-close {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--navy);
+  background: var(--green-bright);
+  border: 1px solid var(--green-bright);
+  border-radius: 6px;
+  padding: 8px 20px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.legal-modal-close:hover {
+  opacity: 0.85;
+}
