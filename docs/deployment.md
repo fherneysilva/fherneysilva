@@ -8,6 +8,10 @@ El sitio se despliega automáticamente a GitHub Pages con GitHub Actions, defini
 - **Build**: `npm ci` + `npm run build` (Node 22), genera `dist/`.
 - **Publicación**: `actions/upload-pages-artifact` + `actions/deploy-pages` (mecanismo nativo de GitHub Pages, sin rama `gh-pages` ni paquetes de terceros).
 
+## CI (separado del deploy)
+
+[`.github/workflows/ci.yml`](../.github/workflows/ci.yml) corre en cada **pull request** contra `master` o `develop` — `npm ci` + `npm run lint` + `npm run build`, sin publicar nada. Si un PR rompe el lint o el build, el check queda en rojo antes de poder mezclar. Es intencionalmente un workflow separado del de deploy (que solo reacciona a `push` en `master`), para no mezclar "validar un PR" con "publicar a producción".
+
 ## Flujo de ramas
 
 - **`develop`** — rama activa de trabajo. Todo el desarrollo y las pruebas ocurren acá. Los pushes a `develop` **no** disparan ningún despliegue.

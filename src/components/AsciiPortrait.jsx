@@ -131,6 +131,10 @@ const AsciiPortrait = () => {
     // 1. Check pre-calculated static data
     if (asciiData[size]) {
       particlesRef.current = createParticlesFromRaw(asciiData[size], isMobileSize);
+      // Known/accepted: fixing this means reworking the particle animation's timing (tied to
+      // performance.now() captured right below), and the risk of breaking the hand-tuned
+      // animation outweighs silencing a non-functional lint. See CLAUDE.md.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setDataReady(true);
       startTimeRef.current = performance.now();
       return;

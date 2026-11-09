@@ -38,6 +38,7 @@ No hay backend, base de datos, ni gestor de estado global (Redux/Zustand/etc.) �
 ├── extract_ascii.cjs          # Script Node/Playwright para regenerar asciiData.js
 ├── resize-photo.cjs           # Script Node/Playwright para comprimir/redimensionar fotos de contenido
 ├── generate_og.cjs            # Script Node/Playwright para generar la tarjeta de preview (public/assets/og-image.png)
+├── generate_icons.cjs         # Script Node/Playwright para generar apple-touch-icon.png/logo192.png/logo512.png desde favicon.svg
 ├── eslint.config.js
 ├── vite.config.js
 └── docs/                       # Esta documentación
@@ -107,8 +108,16 @@ Como el sitio es una SPA de una sola página estática (sin SSR ni pre-renderiza
 - **`public/robots.txt`**: permite todo el crawling y referencia el sitemap.
 - **`lang` dinámico**: `LanguageContext.jsx` actualiza `document.documentElement.lang` (`"en"`/`"es"`) cada vez que cambia el idioma, y el script inline de `index.html` lo fija correctamente antes del primer render (mismo mecanismo que evita el parpadeo de tema) — así el atributo `lang` real coincide con el idioma que ve el visitante, no queda fijo en `"en"`.
 
+## Íconos y manifest
+
+- **`public/favicon.svg`** es la fuente de verdad del ícono del sitio (cuadrado negro redondeado, iniciales "FS" en blanco).
+- **`apple-touch-icon.png`** (180×180), **`logo192.png`** y **`logo512.png`** (para `public/manifest.json`) se generan rasterizando ese SVG con `generate_icons.cjs` (`node generate_icons.cjs`) — mismo mecanismo Node/Playwright que el resto de scripts de imágenes del repo, para no agregar una dependencia de procesamiento de imágenes solo para esto.
+- **`index.html`** referencia `apple-touch-icon.png` y `manifest.json` con el mismo patrón `%BASE_URL%` que el favicon, para que funcionen tanto en el dominio propio como en el fallback de subcarpeta de github.io.
+- **Si cambia `favicon.svg`**, hay que correr `node generate_icons.cjs` de nuevo y commitear los PNG resultantes — no ocurre automáticamente en el build (mismo patrón que el retrato ASCII y la tarjeta OG).
+
 ## Calidad de código
 
-- `npm run lint` corre ESLint con reglas de `eslint-plugin-react-hooks` (incluye la regla estricta `set-state-in-effect`) y `eslint-plugin-react-refresh`.
-- No hay test runner configurado (no Vitest/Jest/Playwright Test como framework de pruebas — Playwright solo se usa como herramienta puntual en `extract_ascii.cjs`, `resize-photo.cjs` y `generate_og.cjs`).
-- Advertencia conocida y aceptada: `AsciiPortrait.jsx` dispara `react-hooks/set-state-in-effect` porque llama `setDataReady(true)` de forma síncrona dentro de un `useEffect`. No se corrige porque el fix implicaría reestructurar el timing de la animación (que depende de `performance.now()` capturado en ese mismo punto) y el riesgo de romper la animación ajustada a mano supera el beneficio de silenciar un lint no funcional.
+- `npm run lint` corre ESLint con reglas de `eslint-plugin-react-hooks` (incluye la regla estricta `set-state-in-effect`) y `eslint-plugin-react-refresh`. Sale limpio (0 errores) — ver el punto siguiente sobre la única excepción.
+- No hay test runner configurado (no Vitest/Jest/Playwright Test como framework de pruebas — Playwright solo se usa como herramienta puntual en `extract_ascii.cjs`, `resize-photo.cjs`, `generate_og.cjs` y `generate_icons.cjs`).
+- Excepción conocida y aceptada: `AsciiPortrait.jsx` llama `setDataReady(true)` de forma síncrona dentro de un `useEffect`, lo que dispara `react-hooks/set-state-in-effect`. No se corrige porque el fix implicaría reestructurar el timing de la animación (que depende de `performance.now()` capturado en ese mismo punto) y el riesgo de romper la animación ajustada a mano supera el beneficio de silenciar un lint no funcional — está suprimida ahí mismo con un comentario `eslint-disable-next-line` (con la explicación) en vez de dejar `npm run lint` fallando siempre, para que el check de CI (ver abajo) sea una señal real.
+- **CI en PRs**: [`.github/workflows/ci.yml`](../.github/workflows/ci.yml) corre `npm run lint` + `npm run build` en cada PR contra `master`/`develop` — separado del workflow de deploy (que solo corre en push a `master`). Si un PR rompe el lint o el build, el check queda en rojo antes de mezclar.

@@ -45,6 +45,7 @@ Este archivo es la referencia rápida para trabajar en el código. La documentac
 ## Estado conocido / pendientes
 
 - **Despliegue**: automatizado con GitHub Actions (`.github/workflows/deploy.yml`), dispara en cada push a `master` y publica a GitHub Pages. Ver [`docs/deployment.md`](docs/deployment.md) para el flujo completo.
+- **CI**: [`.github/workflows/ci.yml`](.github/workflows/ci.yml) corre `npm run lint` + `npm run build` en cada PR contra `master`/`develop` (workflow separado del deploy).
 - **Ramas**: `develop` es la rama activa de trabajo (no despliega nada); `master` es producción — se actualiza con merge manual desde `develop` cuando algo está listo para publicarse.
-- **Lint**: `AsciiPortrait.jsx` tiene un warning conocido y aceptado de `react-hooks/set-state-in-effect` — no se corrige porque el riesgo de alterar el timing de la animación de partículas (ajustada a mano) supera el beneficio de silenciar un lint no funcional.
+- **Lint**: sale limpio (`npm run lint` exit 0). La única excepción conocida (`AsciiPortrait.jsx`, `react-hooks/set-state-in-effect` — no se corrige porque el riesgo de alterar el timing de la animación de partículas ajustada a mano supera el beneficio) está suprimida explícitamente con `eslint-disable-next-line` ahí mismo, no silenciada globalmente.
 - **Dominio propio**: comprado y conectado (`www.fherneysilva.com`), vía `public/CNAME` + DNS + Settings → Pages → Custom domain en GitHub.
